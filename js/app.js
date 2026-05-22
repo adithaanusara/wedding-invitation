@@ -118,17 +118,81 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+/* ==================================================
+   Mixed Falling Petals, Flowers and Leaves
+================================================== */
 
 const petalsLayer = document.getElementById('petalsLayer');
-function createPetal(index) {
-  const el = document.createElement('span');
-  const types = ['petal', 'flower-dot', 'leaf'];
-  el.className = types[index % types.length];
-  el.style.left = `${Math.random() * 100}vw`;
-  el.style.animationDuration = `${9 + Math.random() * 9}s`;
-  el.style.animationDelay = `${Math.random() * 7}s`;
-  el.style.setProperty('--drift', `${-70 + Math.random() * 140}px`);
-  el.style.transform = `rotate(${Math.random() * 360}deg)`;
-  petalsLayer.appendChild(el);
+
+const fallingAssets = [
+  {
+    type: 'petal'
+  },
+  {
+    type: 'petal'
+  },
+  {
+    type: 'flower',
+    src: 'assets/falling/fall-flower-1.webp'
+  },
+  {
+    type: 'flower',
+    src: 'assets/falling/fall-flower-2.webp'
+  },
+  {
+    type: 'leaf',
+    src: 'assets/falling/fall-leaf-1.webp'
+  }
+];
+
+function createFallingItem() {
+  if (!petalsLayer) return;
+
+  const itemData = fallingAssets[Math.floor(Math.random() * fallingAssets.length)];
+
+  let item;
+
+  if (itemData.type === 'petal') {
+    item = document.createElement('span');
+    item.className = 'falling-item falling-petal';
+  } else {
+    item = document.createElement('img');
+    item.src = itemData.src;
+    item.alt = '';
+    item.setAttribute('aria-hidden', 'true');
+    item.className =
+      itemData.type === 'flower'
+        ? 'falling-item falling-flower'
+        : 'falling-item falling-leaf-img';
+  }
+
+  const startLeft = Math.random() * 100;
+  const drift = (Math.random() * 180 - 90).toFixed(0);
+  const duration = (16 + Math.random() * 12).toFixed(1);
+  const delay = (Math.random() * 5).toFixed(1);
+  const scale = (0.75 + Math.random() * 0.65).toFixed(2);
+
+  item.style.left = `${startLeft}%`;
+  item.style.setProperty('--drift', `${drift}px`);
+  item.style.setProperty('--scale', scale);
+  item.style.animationDuration = `${duration}s`;
+  item.style.animationDelay = `-${delay}s`;
+
+  petalsLayer.appendChild(item);
+
+  setTimeout(() => {
+  item.remove();
+}, (Number(duration) + 6) * 1000);
 }
-for (let i = 0; i < 48; i++) createPetal(i);
+
+function startFallingAnimation() {
+  if (!petalsLayer) return;
+
+  for (let i = 0; i < 30; i++) {
+    createFallingItem();
+  }
+
+  setInterval(createFallingItem, 700);
+}
+
+startFallingAnimation();

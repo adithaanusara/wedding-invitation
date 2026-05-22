@@ -2362,3 +2362,2408 @@ body {
     opacity: 0.14 !important;
   }
 }
+/* ==================================================
+   FINAL FLOWER LAYOUT
+   clean + full + less empty spaces
+================================================== */
+
+.invitation-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* all flower images */
+.bg-flower {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  object-fit: contain;
+  z-index: 1;
+  transform-origin: center;
+  filter: sepia(0.05) saturate(0.88) brightness(1.05);
+}
+
+/* content above flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative;
+  z-index: 3;
+}
+
+/* ======================================
+   Desktop / default positions
+====================================== */
+
+/* top left */
+.flower-top-left-main {
+  width: 340px;
+  top: -45px;
+  left: -75px;
+  opacity: 0.36;
+  animation: flowerRotateSlow 90s linear infinite;
+}
+
+.flower-top-left-soft {
+  width: 250px;
+  top: 22px;
+  left: 105px;
+  opacity: 0.22;
+  animation: flowerFloat 12s ease-in-out infinite;
+}
+
+/* top right */
+.flower-top-right-main {
+  width: 360px;
+  top: -30px;
+  right: -85px;
+  opacity: 0.30;
+  animation: flowerRotateReverse 100s linear infinite;
+}
+
+.flower-top-right-soft {
+  width: 250px;
+  top: 120px;
+  right: 130px;
+  opacity: 0.18;
+  animation: flowerFloat 14s ease-in-out infinite;
+}
+
+/* middle fillers */
+.flower-mid-right-outline {
+  width: 240px;
+  top: 580px;
+  right: -80px;
+  opacity: 0.14;
+  animation: flowerRotateSlow 120s linear infinite;
+}
+
+.flower-mid-left-branch {
+  width: 210px;
+  top: 720px;
+  left: -50px;
+  opacity: 0.18;
+  transform: rotate(-18deg);
+  animation: branchFloat 10s ease-in-out infinite;
+}
+
+.flower-mid-left-soft {
+  width: 240px;
+  top: 860px;
+  left: -95px;
+  opacity: 0.12;
+  animation: flowerRotateReverse 130s linear infinite;
+}
+
+/* right bottom stack */
+.flower-bottom-right-base {
+  width: 360px;
+  right: -135px;
+  top: 980px;
+  opacity: 0.18;
+  transform: rotate(10deg);
+  animation: flowerRotateSlow 110s linear infinite;
+}
+
+.flower-bottom-right-middle {
+  width: 300px;
+  right: -85px;
+  top: 885px;
+  opacity: 0.14;
+  transform: rotate(-10deg);
+  animation: flowerFloat 11s ease-in-out infinite;
+}
+
+.flower-bottom-right-top {
+  width: 285px;
+  right: -115px;
+  top: 1120px;
+  opacity: 0.13;
+  transform: rotate(14deg);
+  animation: flowerRotateReverse 125s linear infinite;
+}
+
+/* left bottom fillers */
+.flower-bottom-left-branch {
+  width: 230px;
+  left: -60px;
+  top: 1220px;
+  opacity: 0.18;
+  transform: rotate(-14deg);
+  animation: branchFloat 11s ease-in-out infinite;
+}
+
+.flower-bottom-left-main {
+  width: 260px;
+  left: -90px;
+  top: 1080px;
+  opacity: 0.13;
+  transform: rotate(-12deg);
+  animation: flowerRotateSlow 120s linear infinite;
+}
+
+.flower-bottom-left-soft {
+  width: 220px;
+  left: -60px;
+  top: 1350px;
+  opacity: 0.11;
+  animation: flowerRotateReverse 130s linear infinite;
+}
+
+/* ======================================
+   Animation
+====================================== */
+
+@keyframes flowerRotateSlow {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.025);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes flowerRotateReverse {
+  0% {
+    transform: rotate(360deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes flowerFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) rotate(4deg) scale(1.02);
+  }
+}
+
+@keyframes branchFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-18deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-12deg);
+  }
+}
+
+/* ======================================
+   MOBILE - main fix
+====================================== */
+
+@media (max-width: 700px) {
+  .flower-top-left-main {
+    width: 250px !important;
+    top: -22px !important;
+    left: -82px !important;
+    opacity: 0.38 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 190px !important;
+    top: 18px !important;
+    left: 78px !important;
+    opacity: 0.25 !important;
+  }
+
+  .flower-top-right-main {
+    width: 260px !important;
+    top: -8px !important;
+    right: -86px !important;
+    opacity: 0.28 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 180px !important;
+    top: 96px !important;
+    right: 40px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 185px !important;
+    top: 470px !important;
+    right: -62px !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 150px !important;
+    top: 720px !important;
+    left: -38px !important;
+    opacity: 0.17 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 170px !important;
+    top: 870px !important;
+    left: -70px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-bottom-right-base {
+    width: 280px !important;
+    right: -120px !important;
+    top: 830px !important;
+    opacity: 0.17 !important;
+  }
+
+  .flower-bottom-right-middle {
+    width: 225px !important;
+    right: -72px !important;
+    top: 760px !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-bottom-right-top {
+    width: 220px !important;
+    right: -95px !important;
+    top: 990px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-bottom-left-branch {
+    width: 165px !important;
+    left: -40px !important;
+    top: 1100px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-bottom-left-main {
+    width: 185px !important;
+    left: -60px !important;
+    top: 980px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-bottom-left-soft {
+    width: 160px !important;
+    left: -45px !important;
+    top: 1240px !important;
+    opacity: 0.10 !important;
+  }
+}
+
+/* smaller phones */
+@media (max-width: 430px) {
+  .flower-top-left-main {
+    width: 235px !important;
+    top: -18px !important;
+    left: -80px !important;
+  }
+
+  .flower-top-left-soft {
+    width: 180px !important;
+    top: 18px !important;
+    left: 72px !important;
+  }
+
+  .flower-top-right-main {
+    width: 245px !important;
+    top: -5px !important;
+    right: -86px !important;
+  }
+
+  .flower-top-right-soft {
+    width: 170px !important;
+    top: 100px !important;
+    right: 26px !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 170px !important;
+    top: 455px !important;
+    right: -60px !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 140px !important;
+    top: 700px !important;
+    left: -38px !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 160px !important;
+    top: 845px !important;
+    left: -68px !important;
+  }
+
+  .flower-bottom-right-base {
+    width: 260px !important;
+    right: -115px !important;
+    top: 810px !important;
+  }
+
+  .flower-bottom-right-middle {
+    width: 210px !important;
+    right: -70px !important;
+    top: 745px !important;
+  }
+
+  .flower-bottom-right-top {
+    width: 205px !important;
+    right: -92px !important;
+    top: 965px !important;
+  }
+
+  .flower-bottom-left-branch {
+    width: 150px !important;
+    left: -40px !important;
+    top: 1075px !important;
+  }
+
+  .flower-bottom-left-main {
+    width: 175px !important;
+    left: -58px !important;
+    top: 955px !important;
+  }
+
+  .flower-bottom-left-soft {
+    width: 150px !important;
+    left: -45px !important;
+    top: 1210px !important;
+  }
+}
+
+/* ======================================
+   Hide old duplicate flower classes
+====================================== */
+
+.flower-1,
+.flower-3,
+.flower-4,
+.flower-6,
+.flower-8,
+.flower-9,
+.flower-11,
+.flower-bottom-right-big,
+.flower-bottom-right-soft,
+.flower-bottom-right-main,
+.rb-flower-4,
+.rb-flower-8,
+.rb-flower-1,
+.flower-bottom-left-main.old,
+.flower-bottom-left-branch.old {
+  display: none !important;
+}
+/* ================================
+   EXTRA FLOWERS FOR EMPTY SPACES
+================================ */
+
+/* left middle empty space */
+.flower-left-mid-fill {
+  width: 170px;
+  left: -55px;
+  top: 520px;
+  opacity: 0.13;
+  transform: rotate(-10deg);
+  animation: flowerRotateSlow 100s linear infinite;
+}
+
+/* left lower empty space */
+.flower-left-lower-branch {
+  width: 155px;
+  left: -35px;
+  top: 1180px;
+  opacity: 0.17;
+  transform: rotate(-18deg);
+  animation: branchFloat 10s ease-in-out infinite;
+}
+
+/* lower center front soft flower */
+.flower-lower-center-soft {
+  width: 230px;
+  left: 40px;
+  top: 1320px;
+  opacity: 0.12;
+  transform: rotate(-8deg);
+  animation: flowerRotateReverse 120s linear infinite;
+}
+
+/* lower center back flower */
+.flower-lower-center-back {
+  width: 200px;
+  left: 120px;
+  top: 1450px;
+  opacity: 0.10;
+  transform: rotate(12deg);
+  animation: flowerRotateSlow 130s linear infinite;
+}
+
+/* mobile */
+@media (max-width: 700px) {
+  .flower-left-mid-fill {
+    width: 140px !important;
+    left: -40px !important;
+    top: 500px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-left-lower-branch {
+    width: 135px !important;
+    left: -30px !important;
+    top: 1080px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-lower-center-soft {
+    width: 180px !important;
+    left: 20px !important;
+    top: 1220px !important;
+    opacity: 0.11 !important;
+  }
+
+  .flower-lower-center-back {
+    width: 155px !important;
+    left: 95px !important;
+    top: 1340px !important;
+    opacity: 0.09 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .flower-left-mid-fill {
+    width: 130px !important;
+    left: -35px !important;
+    top: 490px !important;
+  }
+
+  .flower-left-lower-branch {
+    width: 125px !important;
+    left: -28px !important;
+    top: 1040px !important;
+  }
+
+  .flower-lower-center-soft {
+    width: 165px !important;
+    left: 10px !important;
+    top: 1185px !important;
+  }
+
+  .flower-lower-center-back {
+    width: 145px !important;
+    left: 82px !important;
+    top: 1300px !important;
+  }
+}
+
+/* ==================================================
+   VENUE + CLOSING SECTION FLOWERS
+   lower section decorative flowers with animation
+================================================== */
+
+.venue-flower-left {
+  width: 260px;
+  left: -90px;
+  top: 1520px;
+  opacity: 0.14;
+  transform: rotate(-12deg);
+  animation: venueFlowerRotate 110s linear infinite;
+}
+
+.venue-flower-right {
+  width: 310px;
+  right: -115px;
+  top: 1460px;
+  opacity: 0.14;
+  transform: rotate(10deg);
+  animation: venueFlowerRotateReverse 120s linear infinite;
+}
+
+.venue-flower-bottom-left {
+  width: 270px;
+  left: -100px;
+  top: 1810px;
+  opacity: 0.13;
+  transform: rotate(8deg);
+  animation: venueFlowerFloat 13s ease-in-out infinite;
+}
+
+.venue-flower-bottom-right {
+  width: 300px;
+  right: -110px;
+  top: 1780px;
+  opacity: 0.16;
+  transform: rotate(-10deg);
+  animation: venueFlowerRotate 130s linear infinite;
+}
+
+.venue-branch-left {
+  width: 230px;
+  left: -60px;
+  top: 1680px;
+  opacity: 0.18;
+  transform: rotate(-22deg);
+  animation: venueBranchFloat 11s ease-in-out infinite;
+}
+
+.venue-small-flower {
+  width: 150px;
+  right: 35px;
+  top: 1620px;
+  opacity: 0.18;
+  transform: rotate(10deg);
+  animation: venueFlowerFloat 10s ease-in-out infinite;
+}
+
+/* all decorative flowers slow animation softness */
+.bg-flower {
+  pointer-events: none;
+  user-select: none;
+  transform-origin: center;
+}
+
+/* content text always above flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative;
+  z-index: 5;
+}
+
+/* animations */
+@keyframes venueFlowerRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.025);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes venueFlowerRotateReverse {
+  0% {
+    transform: rotate(360deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.02);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes venueFlowerFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(8deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(14deg) scale(1.025);
+  }
+}
+
+@keyframes venueBranchFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-22deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(-16deg);
+  }
+}
+
+/* ==================================================
+   MOBILE VENUE FLOWER PLACEMENT
+================================================== */
+
+@media (max-width: 700px) {
+  .venue-flower-left {
+    width: 205px !important;
+    left: -75px !important;
+    top: 1320px !important;
+    opacity: 0.13 !important;
+  }
+
+  .venue-flower-right {
+    width: 240px !important;
+    right: -95px !important;
+    top: 1280px !important;
+    opacity: 0.13 !important;
+  }
+
+  .venue-flower-bottom-left {
+    width: 215px !important;
+    left: -85px !important;
+    top: 1650px !important;
+    opacity: 0.12 !important;
+  }
+
+  .venue-flower-bottom-right {
+    width: 240px !important;
+    right: -95px !important;
+    top: 1620px !important;
+    opacity: 0.15 !important;
+  }
+
+  .venue-branch-left {
+    width: 180px !important;
+    left: -55px !important;
+    top: 1480px !important;
+    opacity: 0.17 !important;
+  }
+
+  .venue-small-flower {
+    width: 120px !important;
+    right: 20px !important;
+    top: 1420px !important;
+    opacity: 0.17 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .venue-flower-left {
+    width: 190px !important;
+    left: -72px !important;
+    top: 1280px !important;
+  }
+
+  .venue-flower-right {
+    width: 225px !important;
+    right: -92px !important;
+    top: 1245px !important;
+  }
+
+  .venue-flower-bottom-left {
+    width: 200px !important;
+    left: -80px !important;
+    top: 1585px !important;
+  }
+
+  .venue-flower-bottom-right {
+    width: 225px !important;
+    right: -90px !important;
+    top: 1560px !important;
+  }
+
+  .venue-branch-left {
+    width: 165px !important;
+    left: -52px !important;
+    top: 1430px !important;
+  }
+
+  .venue-small-flower {
+    width: 110px !important;
+    right: 16px !important;
+    top: 1380px !important;
+  }
+}
+
+/* =========================================
+   VENUE SECTION ROTATING FLOWER
+========================================= */
+
+.venue-rotating-flower {
+  width: 170px;
+  height: auto;
+  display: block;
+  margin: 0 auto 22px;
+  opacity: 0.96;
+  position: relative;
+  z-index: 4;
+  transform-origin: center center;
+  animation: venueFlowerSpin 18s linear infinite;
+  filter: drop-shadow(0 10px 18px rgba(128, 61, 49, 0.16));
+}
+
+@keyframes venueFlowerSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* mobile */
+@media (max-width: 700px) {
+  .venue-rotating-flower {
+    width: 145px !important;
+    margin: 0 auto 18px !important;
+    animation-duration: 20s !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .venue-rotating-flower {
+    width: 130px !important;
+    margin: 0 auto 16px !important;
+    animation-duration: 22s !important;
+  }
+}
+/* ==================================================
+   MIXED FALLING PETALS + FLOWERS + LEAVES
+================================================== */
+
+.petals-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.falling-item {
+  position: absolute;
+  top: -12vh;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.78;
+  will-change: transform;
+  animation-name: mixedFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.falling-petal {
+  width: 18px;
+  height: 12px;
+  background: linear-gradient(135deg, #b9565d, #822f38);
+  border-radius: 90% 5% 90% 5%;
+  box-shadow: 0 3px 8px rgba(80, 20, 20, 0.15);
+}
+
+.falling-flower,
+.falling-leaf-img {
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 4px 7px rgba(90, 35, 35, 0.14));
+}
+
+.falling-flower {
+  width: 26px;
+  height: 26px;
+  opacity: 0.72;
+}
+
+.falling-leaf-img {
+  width: 24px;
+  height: auto;
+  opacity: 0.75;
+}
+
+@keyframes mixedFall {
+  0% {
+    transform: translate3d(0, -15vh, 0) rotate(0deg) scale(var(--scale));
+  }
+
+  50% {
+    transform: translate3d(calc(var(--drift) / 2), 55vh, 0) rotate(240deg) scale(var(--scale));
+  }
+
+  100% {
+    transform: translate3d(var(--drift), 130vh, 0) rotate(560deg) scale(var(--scale));
+  }
+}
+
+@media (max-width: 700px) {
+  .falling-flower {
+    width: 22px;
+    height: 22px;
+  }
+
+  .falling-leaf-img {
+    width: 21px;
+  }
+
+  .falling-petal {
+    width: 16px;
+    height: 10px;
+  }
+}
+/* Hero title bold fix */
+.hero-title {
+  font-weight: 900 !important;
+  -webkit-text-stroke: 2px #963d42;
+  text-shadow:
+    0 5px 0 rgba(120, 55, 55, 0.10),
+    0 14px 24px rgba(120, 55, 55, 0.16) !important;
+}
+
+.hero-title span {
+  font-weight: 900 !important;
+}
+
+/* ==================================================
+   DESKTOP BOTTOM FLOWERS - CLOSING SECTION
+================================================== */
+
+@media (min-width: 701px) {
+  .desktop-bottom-flower-left {
+    width: 360px;
+    left: -120px;
+    top: 1850px;
+    opacity: 0.18;
+    transform: rotate(-12deg);
+    animation: desktopBottomRotate 120s linear infinite;
+  }
+
+  .desktop-bottom-flower-right {
+    width: 430px;
+    right: -140px;
+    top: 1780px;
+    opacity: 0.18;
+    transform: rotate(10deg);
+    animation: desktopBottomReverse 130s linear infinite;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 280px;
+    left: 50%;
+    top: 2050px;
+    opacity: 0.12;
+    transform: translateX(-50%) rotate(8deg);
+    animation: desktopBottomFloat 12s ease-in-out infinite;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 300px;
+    left: -90px;
+    top: 2050px;
+    opacity: 0.18;
+    transform: rotate(-18deg);
+    animation: desktopBranchFloat 11s ease-in-out infinite;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 180px;
+    right: 140px;
+    top: 1980px;
+    opacity: 0.20;
+    transform: rotate(8deg);
+    animation: desktopBottomFloat 10s ease-in-out infinite;
+  }
+}
+
+@keyframes desktopBottomRotate {
+  0% {
+    transform: rotate(-12deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(168deg) scale(1.025);
+  }
+
+  100% {
+    transform: rotate(348deg) scale(1);
+  }
+}
+
+@keyframes desktopBottomReverse {
+  0% {
+    transform: rotate(10deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-170deg) scale(1.025);
+  }
+
+  100% {
+    transform: rotate(-350deg) scale(1);
+  }
+}
+
+@keyframes desktopBottomFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(8deg) scale(1);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-14px) rotate(14deg) scale(1.025);
+  }
+}
+
+@keyframes desktopBranchFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-18deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-12deg);
+  }
+}
+
+/* ==================================================
+   VERY BOTTOM LEFT + RIGHT FLOWERS
+   page eke yatinma flowers
+================================================== */
+
+.invitation-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.very-bottom-left-flower {
+  width: 420px;
+  left: -150px;
+  bottom: -120px;
+  opacity: 0.18;
+  z-index: 1;
+  transform: rotate(-12deg);
+  animation: veryBottomLeftRotate 120s linear infinite;
+}
+
+.very-bottom-right-flower {
+  width: 460px;
+  right: -160px;
+  bottom: -130px;
+  opacity: 0.20;
+  z-index: 1;
+  transform: rotate(12deg);
+  animation: veryBottomRightRotate 130s linear infinite;
+}
+
+/* text content flowers walata uda enna */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+@keyframes veryBottomLeftRotate {
+  0% {
+    transform: rotate(-12deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(168deg) scale(1.03);
+  }
+
+  100% {
+    transform: rotate(348deg) scale(1);
+  }
+}
+
+@keyframes veryBottomRightRotate {
+  0% {
+    transform: rotate(12deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-168deg) scale(1.03);
+  }
+
+  100% {
+    transform: rotate(-348deg) scale(1);
+  }
+}
+
+/* Mobile bottom flowers */
+@media (max-width: 700px) {
+  .very-bottom-left-flower {
+    width: 280px !important;
+    left: -115px !important;
+    bottom: -85px !important;
+    opacity: 0.16 !important;
+  }
+
+  .very-bottom-right-flower {
+    width: 310px !important;
+    right: -125px !important;
+    bottom: -95px !important;
+    opacity: 0.18 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .very-bottom-left-flower {
+    width: 260px !important;
+    left: -110px !important;
+    bottom: -80px !important;
+  }
+
+  .very-bottom-right-flower {
+    width: 290px !important;
+    right: -120px !important;
+    bottom: -90px !important;
+  }
+}
+
+/* ==================================================
+   DESKTOP HERO FLOWER + TITLE FIX
+================================================== */
+
+@media (min-width: 701px) {
+  .hero {
+    min-height: 92vh !important;
+    padding: 30px 24px 20px !important;
+    align-content: center !important;
+    overflow: visible !important;
+  }
+
+  .hero-title {
+    font-size: clamp(82px, 7.8vw, 138px) !important;
+    line-height: 0.88 !important;
+    max-width: 1500px !important;
+    margin: 0 auto 20px !important;
+    position: relative !important;
+    z-index: 6 !important;
+  }
+
+  .couple-illustration {
+    width: min(370px, 27vw) !important;
+    margin: 0 auto 20px !important;
+    position: relative !important;
+    z-index: 6 !important;
+  }
+
+  /* desktop top flowers smaller and behind text */
+  .flower-top-left-main,
+  .flower-top-left-soft,
+  .flower-top-right-main,
+  .flower-top-right-soft {
+    z-index: 1 !important;
+  }
+
+  .flower-top-left-main {
+    width: 360px !important;
+    top: -70px !important;
+    left: -95px !important;
+    opacity: 0.24 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 300px !important;
+    top: 10px !important;
+    left: 160px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-top-right-main {
+    width: 430px !important;
+    top: -60px !important;
+    right: -95px !important;
+    opacity: 0.22 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 280px !important;
+    top: 130px !important;
+    right: 180px !important;
+    opacity: 0.13 !important;
+  }
+
+  /* keep all content above background flowers */
+  .hero,
+  .intro-card,
+  .date-section,
+  .venue-section,
+  .closing {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .bg-flower {
+    pointer-events: none !important;
+  }
+}
+/* ==================================================
+   FINAL DESKTOP FLOWER POSITION FIX
+   bottom / side flowers balanced nicely
+================================================== */
+
+@media (min-width: 701px) {
+  /* Keep content above decorative flowers */
+  .hero,
+  .intro-card,
+  .date-section,
+  .venue-section,
+  .closing {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .bg-flower {
+    pointer-events: none !important;
+    user-select: none !important;
+    z-index: 1 !important;
+    filter: sepia(0.04) saturate(0.78) brightness(1.12) !important;
+  }
+
+  /* Top flowers should be soft, not too heavy */
+  .flower-top-left-main {
+    width: 380px !important;
+    top: -75px !important;
+    left: -95px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 290px !important;
+    top: 30px !important;
+    left: 155px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-top-right-main {
+    width: 470px !important;
+    top: -80px !important;
+    right: -105px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 300px !important;
+    top: 145px !important;
+    right: 175px !important;
+    opacity: 0.11 !important;
+  }
+
+  /* Left side under couple image */
+  .flower-mid-left-branch {
+    width: 260px !important;
+    top: 870px !important;
+    left: -90px !important;
+    opacity: 0.16 !important;
+    transform: rotate(-18deg) !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 300px !important;
+    top: 1040px !important;
+    left: -130px !important;
+    opacity: 0.10 !important;
+  }
+
+  /* Right side under couple image */
+  .flower-mid-right-outline {
+    width: 300px !important;
+    top: 760px !important;
+    right: -115px !important;
+    opacity: 0.12 !important;
+  }
+
+  /* Right bottom flower cluster */
+  .flower-bottom-right-base,
+  .rb-flower-4 {
+    width: 390px !important;
+    top: 1180px !important;
+    right: -150px !important;
+    bottom: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-bottom-right-middle,
+  .rb-flower-8 {
+    width: 320px !important;
+    top: 1030px !important;
+    right: -95px !important;
+    bottom: auto !important;
+    opacity: 0.11 !important;
+  }
+
+  .flower-bottom-right-top,
+  .rb-flower-1 {
+    width: 310px !important;
+    top: 1350px !important;
+    right: -135px !important;
+    bottom: auto !important;
+    opacity: 0.10 !important;
+  }
+
+  /* Left bottom flower cluster */
+  .flower-bottom-left-main {
+    width: 330px !important;
+    top: 1240px !important;
+    left: -130px !important;
+    bottom: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-bottom-left-branch {
+    width: 280px !important;
+    top: 1400px !important;
+    left: -80px !important;
+    bottom: auto !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-bottom-left-soft {
+    width: 250px !important;
+    top: 1580px !important;
+    left: -70px !important;
+    bottom: auto !important;
+    opacity: 0.09 !important;
+  }
+
+  /* Very bottom flowers left / right */
+  .final-bottom-left-flower,
+  .very-bottom-left-flower {
+    width: 420px !important;
+    left: -165px !important;
+    bottom: -135px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  .final-bottom-right-flower,
+  .very-bottom-right-flower {
+    width: 460px !important;
+    right: -175px !important;
+    bottom: -145px !important;
+    top: auto !important;
+    opacity: 0.15 !important;
+  }
+
+  /* Hide unwanted center flowers */
+  .desktop-bottom-flower-center,
+  .venue-flower-bottom-left,
+  .venue-flower-bottom-right,
+  .flower-lower-center-soft,
+  .flower-lower-center-back {
+    display: none !important;
+  }
+}
+/* ==================================================
+   REMOVE OLD BOTTOM FLOWERS
+================================================== */
+.final-bottom-left-flower,
+.final-bottom-right-flower,
+.very-bottom-left-flower,
+.very-bottom-right-flower,
+.flower-bottom-left-main,
+.flower-bottom-right-base,
+.flower-bottom-right-middle,
+.flower-bottom-right-top,
+.rb-flower-4,
+.rb-flower-8,
+.rb-flower-1 {
+  display: none !important;
+}
+
+/* ==================================================
+   NEW BOTTOM FLOWERS - LEFT / RIGHT
+================================================== */
+
+.new-bottom-left-flower {
+  width: 320px;
+  left: -95px;
+  bottom: -95px;
+  top: auto !important;
+  opacity: 0.14;
+  z-index: 1;
+  transform: rotate(-10deg);
+  animation: rotateLeftFlower 24s linear infinite;
+}
+
+.new-bottom-right-flower {
+  width: 330px;
+  right: -105px;
+  bottom: -100px;
+  top: auto !important;
+  opacity: 0.14;
+  z-index: 1;
+  transform: rotate(10deg);
+  animation: rotateRightFlower 26s linear infinite;
+}
+
+/* content above flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+@keyframes rotateLeftFlower {
+  0% {
+    transform: rotate(-10deg) scale(1);
+  }
+  50% {
+    transform: rotate(170deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(350deg) scale(1);
+  }
+}
+
+@keyframes rotateRightFlower {
+  0% {
+    transform: rotate(10deg) scale(1);
+  }
+  50% {
+    transform: rotate(-170deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(-350deg) scale(1);
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+@media (max-width: 700px) {
+  .new-bottom-left-flower {
+    width: 220px !important;
+    left: -75px !important;
+    bottom: -70px !important;
+    opacity: 0.12 !important;
+  }
+
+  .new-bottom-right-flower {
+    width: 230px !important;
+    right: -80px !important;
+    bottom: -72px !important;
+    opacity: 0.12 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .new-bottom-left-flower {
+    width: 200px !important;
+    left: -68px !important;
+    bottom: -62px !important;
+  }
+
+  .new-bottom-right-flower {
+    width: 210px !important;
+    right: -72px !important;
+    bottom: -65px !important;
+  }
+}
+/* Couple image size reduce */
+.couple-illustration {
+  width: min(320px, 24vw) !important;
+}
+
+/* Desktop */
+@media (min-width: 701px) {
+  .couple-illustration {
+    width: min(300px, 24vw) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .couple-illustration {
+    width: min(270px, 58vw) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .couple-illustration {
+    width: min(250px, 56vw) !important;
+  }
+}
+/* ==================================================
+   MOBILE FLOWER FIX - couple section clean
+================================================== */
+
+@media (max-width: 700px) {
+  /* Couple image පිටිපස්සේ තියෙන ලොකු right flower එක soft/hide */
+  .flower-top-right-main,
+  .flower-top-right-soft {
+    opacity: 0.10 !important;
+    width: 190px !important;
+    right: -80px !important;
+    top: 120px !important;
+  }
+
+  /* Couple section right side ලොකු flower එක remove/soft */
+  .flower-mid-right-outline,
+  .flower-bottom-right-base,
+  .flower-bottom-right-middle,
+  .flower-bottom-right-top,
+  .rb-flower-4,
+  .rb-flower-8,
+  .rb-flower-1 {
+    opacity: 0.08 !important;
+    width: 160px !important;
+    right: -75px !important;
+  }
+
+  /* Couple image එක clear වෙන්න above layer */
+  .couple-illustration,
+  .couple-img {
+    position: relative !important;
+    z-index: 8 !important;
+  }
+
+  .hero-title {
+    position: relative !important;
+    z-index: 9 !important;
+  }
+
+  /* Couple image යට left side flower */
+  .flower-left-mid-fill,
+  .flower-mid-left-soft {
+    width: 145px !important;
+    left: -45px !important;
+    top: 500px !important;
+    opacity: 0.13 !important;
+  }
+
+  /* Couple image යට right side small flower */
+  .flower-8 {
+    width: 150px !important;
+    right: -65px !important;
+    top: 520px !important;
+    opacity: 0.12 !important;
+  }
+
+  /* Intro text area right flower */
+  .flower-bottom-right-main,
+  .flower-bottom-right-soft {
+    width: 210px !important;
+    right: -95px !important;
+    top: 760px !important;
+    opacity: 0.13 !important;
+  }
+
+  /* Intro text area left branch */
+  .flower-left-lower-branch,
+  .flower-bottom-left-branch {
+    width: 145px !important;
+    left: -45px !important;
+    top: 780px !important;
+    opacity: 0.16 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .flower-top-right-main,
+  .flower-top-right-soft {
+    opacity: 0.08 !important;
+    width: 175px !important;
+    right: -78px !important;
+    top: 125px !important;
+  }
+
+  .flower-mid-right-outline,
+  .flower-bottom-right-base,
+  .flower-bottom-right-middle,
+  .flower-bottom-right-top,
+  .rb-flower-4,
+  .rb-flower-8,
+  .rb-flower-1 {
+    opacity: 0.07 !important;
+    width: 145px !important;
+    right: -70px !important;
+  }
+
+  .flower-left-mid-fill,
+  .flower-mid-left-soft {
+    width: 130px !important;
+    left: -42px !important;
+    top: 485px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-8 {
+    width: 135px !important;
+    right: -62px !important;
+    top: 505px !important;
+    opacity: 0.11 !important;
+  }
+
+  .flower-bottom-right-main,
+  .flower-bottom-right-soft {
+    width: 190px !important;
+    right: -88px !important;
+    top: 730px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-left-lower-branch,
+  .flower-bottom-left-branch {
+    width: 130px !important;
+    left: -40px !important;
+    top: 760px !important;
+    opacity: 0.15 !important;
+  }
+}
+
+/* ==================================================
+   FINAL MOBILE TOP FLOWERS CLEAN FIX
+   top flowers balanced + couple clear
+================================================== */
+
+@media (max-width: 700px) {
+  /* Top left flower cluster */
+  .flower-top-left-main {
+    width: 210px !important;
+    top: -24px !important;
+    left: -68px !important;
+    opacity: 0.28 !important;
+    z-index: 1 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 165px !important;
+    top: 34px !important;
+    left: 70px !important;
+    opacity: 0.18 !important;
+    z-index: 1 !important;
+  }
+
+  /* Top right flower cluster - reduce and move up/right */
+  .flower-top-right-main {
+    width: 230px !important;
+    top: -18px !important;
+    right: -92px !important;
+    opacity: 0.20 !important;
+    z-index: 1 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 160px !important;
+    top: 95px !important;
+    right: -18px !important;
+    opacity: 0.12 !important;
+    z-index: 1 !important;
+  }
+
+  /* Remove/soften the huge middle-right flower behind couple */
+  .flower-mid-right-outline {
+    width: 165px !important;
+    top: 455px !important;
+    right: -82px !important;
+    opacity: 0.08 !important;
+    z-index: 1 !important;
+  }
+
+  /* Make headline and couple always above flowers */
+  .hero-title {
+    position: relative !important;
+    z-index: 8 !important;
+  }
+
+  .couple-illustration,
+  .couple-img {
+    position: relative !important;
+    z-index: 9 !important;
+  }
+
+  /* Couple image slightly centered and clean */
+  .couple-illustration {
+    width: min(270px, 56vw) !important;
+    margin-top: 8px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .flower-top-left-main {
+    width: 195px !important;
+    top: -20px !important;
+    left: -64px !important;
+    opacity: 0.27 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 150px !important;
+    top: 35px !important;
+    left: 60px !important;
+    opacity: 0.17 !important;
+  }
+
+  .flower-top-right-main {
+    width: 210px !important;
+    top: -12px !important;
+    right: -90px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 145px !important;
+    top: 92px !important;
+    right: -20px !important;
+    opacity: 0.11 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 145px !important;
+    top: 440px !important;
+    right: -76px !important;
+    opacity: 0.07 !important;
+  }
+
+  .couple-illustration {
+    width: min(255px, 55vw) !important;
+  }
+}
+/* ==================================================
+   RIGHT SIDE BOTTOM FLOWERS - INTRO AREA FIX
+   Add this as the LAST block in style.css
+================================================== */
+
+.desktop-bottom-flower-right {
+  width: 300px !important;
+  right: -110px !important;
+  top: 780px !important;
+  bottom: auto !important;
+  opacity: 0.13 !important;
+  z-index: 1 !important;
+  transform: rotate(10deg);
+  animation: rightBottomFlowerRotate 70s linear infinite;
+}
+
+.desktop-bottom-flower-center {
+  width: 220px !important;
+  right: -70px !important;
+  top: 900px !important;
+  left: auto !important;
+  bottom: auto !important;
+  opacity: 0.10 !important;
+  z-index: 1 !important;
+  transform: rotate(-12deg);
+  animation: rightBottomFlowerReverse 80s linear infinite;
+}
+
+.desktop-bottom-branch-left {
+  width: 170px !important;
+  right: -35px !important;
+  left: auto !important;
+  top: 1040px !important;
+  bottom: auto !important;
+  opacity: 0.13 !important;
+  z-index: 1 !important;
+  transform: rotate(-28deg);
+  animation: rightBottomBranchFloat 10s ease-in-out infinite;
+}
+
+.desktop-bottom-flower-small-right {
+  width: 115px !important;
+  right: 25px !important;
+  top: 980px !important;
+  bottom: auto !important;
+  opacity: 0.16 !important;
+  z-index: 1 !important;
+  transform: rotate(12deg);
+  animation: rightBottomSmallFloat 9s ease-in-out infinite;
+}
+
+/* text should stay above flowers */
+.intro-card,
+.hero,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+@keyframes rightBottomFlowerRotate {
+  0% {
+    transform: rotate(10deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(190deg) scale(1.025);
+  }
+
+  100% {
+    transform: rotate(370deg) scale(1);
+  }
+}
+
+@keyframes rightBottomFlowerReverse {
+  0% {
+    transform: rotate(-12deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-192deg) scale(1.02);
+  }
+
+  100% {
+    transform: rotate(-372deg) scale(1);
+  }
+}
+
+@keyframes rightBottomBranchFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-28deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(-20deg);
+  }
+}
+
+@keyframes rightBottomSmallFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(12deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(18deg);
+  }
+}
+
+/* Mobile exact position */
+@media (max-width: 700px) {
+  .desktop-bottom-flower-right {
+    width: 230px !important;
+    right: -92px !important;
+    top: 735px !important;
+    opacity: 0.13 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 175px !important;
+    right: -55px !important;
+    top: 850px !important;
+    opacity: 0.10 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 135px !important;
+    right: -28px !important;
+    top: 955px !important;
+    opacity: 0.13 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 95px !important;
+    right: 18px !important;
+    top: 905px !important;
+    opacity: 0.16 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .desktop-bottom-flower-right {
+    width: 210px !important;
+    right: -88px !important;
+    top: 720px !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 160px !important;
+    right: -52px !important;
+    top: 825px !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 125px !important;
+    right: -28px !important;
+    top: 920px !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 88px !important;
+    right: 14px !important;
+    top: 875px !important;
+  }
+}
+
+/* ==================================================
+   FIXED BACKGROUND FLOWERS
+   Text scroll wenawa, flowers stable wenawa
+   Add this as the LAST block in style.css
+================================================== */
+
+/* all decorative flowers stable on screen */
+.bg-flower {
+  position: fixed !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 1 !important;
+}
+
+/* content scrolls above flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* invitation background should not cover fixed flowers */
+.invitation-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* =========================
+   DESKTOP FIXED POSITIONS
+========================= */
+
+@media (min-width: 701px) {
+  .flower-top-left-main {
+    width: 380px !important;
+    top: -75px !important;
+    left: -95px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 290px !important;
+    top: 30px !important;
+    left: 155px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-top-right-main {
+    width: 470px !important;
+    top: -80px !important;
+    right: -105px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 300px !important;
+    top: 145px !important;
+    right: 175px !important;
+    opacity: 0.11 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 240px !important;
+    top: 58vh !important;
+    left: -80px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 260px !important;
+    top: 72vh !important;
+    left: -110px !important;
+    opacity: 0.09 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 260px !important;
+    top: 58vh !important;
+    right: -105px !important;
+    opacity: 0.10 !important;
+  }
+
+  .desktop-bottom-flower-right {
+    width: 300px !important;
+    right: -115px !important;
+    bottom: -90px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 230px !important;
+    right: 90px !important;
+    bottom: -80px !important;
+    top: auto !important;
+    opacity: 0.09 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 250px !important;
+    left: -80px !important;
+    bottom: -65px !important;
+    top: auto !important;
+    opacity: 0.13 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 130px !important;
+    right: 120px !important;
+    bottom: 40px !important;
+    top: auto !important;
+    opacity: 0.15 !important;
+  }
+}
+
+/* =========================
+   MOBILE FIXED POSITIONS
+========================= */
+
+@media (max-width: 700px) {
+  .bg-flower {
+    position: fixed !important;
+  }
+
+  .flower-top-left-main {
+    width: 215px !important;
+    top: 6px !important;
+    left: -72px !important;
+    opacity: 0.26 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 150px !important;
+    top: 54px !important;
+    left: 62px !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-top-right-main {
+    width: 205px !important;
+    top: 6px !important;
+    right: -82px !important;
+    opacity: 0.22 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 130px !important;
+    top: 105px !important;
+    right: -8px !important;
+    opacity: 0.10 !important;
+  }
+
+  /* right side huge flowers hide on mobile */
+  .flower-mid-right-outline,
+  .flower-bottom-right-big,
+  .flower-bottom-right-soft,
+  .flower-bottom-right-main,
+  .flower-bottom-right-base,
+  .flower-bottom-right-middle,
+  .flower-bottom-right-top,
+  .rb-flower-4,
+  .rb-flower-8,
+  .rb-flower-1,
+  .venue-flower-right,
+  .venue-flower-bottom-right,
+  .final-bottom-right-flower,
+  .very-bottom-right-flower {
+    display: none !important;
+  }
+
+  /* bottom fixed flowers */
+  .desktop-bottom-flower-right {
+    width: 210px !important;
+    right: -88px !important;
+    bottom: -65px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 160px !important;
+    right: 18px !important;
+    bottom: -55px !important;
+    top: auto !important;
+    opacity: 0.09 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 150px !important;
+    left: -45px !important;
+    bottom: -35px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 88px !important;
+    right: 20px !important;
+    bottom: 82px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+}
+/* ==================================================
+   EXTRA LEFT + RIGHT + MIDDLE-RIGHT FLOWERS
+   Add as LAST block in style.css
+================================================== */
+
+/* Left side flower */
+.extra-left-side-flower {
+  width: 260px !important;
+  left: -105px !important;
+  top: 42vh !important;
+  opacity: 0.12 !important;
+  z-index: 1 !important;
+  transform: rotate(-12deg);
+  animation: extraSideRotateLeft 90s linear infinite;
+}
+
+/* Left side branch */
+.extra-left-side-branch {
+  width: 230px !important;
+  left: -75px !important;
+  top: 68vh !important;
+  opacity: 0.14 !important;
+  z-index: 1 !important;
+  transform: rotate(-20deg);
+  animation: extraSideFloat 12s ease-in-out infinite;
+}
+
+/* Right side flower */
+.extra-right-side-flower {
+  width: 270px !important;
+  right: -110px !important;
+  top: 36vh !important;
+  opacity: 0.12 !important;
+  z-index: 1 !important;
+  transform: rotate(10deg);
+  animation: extraSideRotateRight 95s linear infinite;
+}
+
+/* Middle right flower */
+.extra-middle-right-flower {
+  width: 240px !important;
+  right: -85px !important;
+  top: 58vh !important;
+  opacity: 0.10 !important;
+  z-index: 1 !important;
+  transform: rotate(-8deg);
+  animation: extraSideFloat 14s ease-in-out infinite;
+}
+
+/* Small right flower */
+.extra-small-right-flower {
+  width: 130px !important;
+  right: 40px !important;
+  top: 76vh !important;
+  opacity: 0.15 !important;
+  z-index: 1 !important;
+  transform: rotate(12deg);
+  animation: extraSmallFlowerFloat 10s ease-in-out infinite;
+}
+
+/* Keep text/content above flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* animations */
+@keyframes extraSideRotateLeft {
+  0% {
+    transform: rotate(-12deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(168deg) scale(1.025);
+  }
+
+  100% {
+    transform: rotate(348deg) scale(1);
+  }
+}
+
+@keyframes extraSideRotateRight {
+  0% {
+    transform: rotate(10deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-170deg) scale(1.025);
+  }
+
+  100% {
+    transform: rotate(-350deg) scale(1);
+  }
+}
+
+@keyframes extraSideFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-10deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-4deg) scale(1.02);
+  }
+}
+
+@keyframes extraSmallFlowerFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(12deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(18deg) scale(1.03);
+  }
+}
+
+/* Mobile positions */
+@media (max-width: 700px) {
+  .extra-left-side-flower {
+    width: 170px !important;
+    left: -70px !important;
+    top: 42vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .extra-left-side-branch {
+    width: 150px !important;
+    left: -50px !important;
+    top: 66vh !important;
+    opacity: 0.13 !important;
+  }
+
+  .extra-right-side-flower {
+    width: 175px !important;
+    right: -75px !important;
+    top: 38vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .extra-middle-right-flower {
+    width: 165px !important;
+    right: -65px !important;
+    top: 56vh !important;
+    opacity: 0.09 !important;
+  }
+
+  .extra-small-right-flower {
+    width: 92px !important;
+    right: 16px !important;
+    top: 75vh !important;
+    opacity: 0.14 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .extra-left-side-flower {
+    width: 155px !important;
+    left: -65px !important;
+  }
+
+  .extra-left-side-branch {
+    width: 138px !important;
+    left: -48px !important;
+  }
+
+  .extra-right-side-flower {
+    width: 160px !important;
+    right: -70px !important;
+  }
+
+  .extra-middle-right-flower {
+    width: 150px !important;
+    right: -62px !important;
+  }
+
+  .extra-small-right-flower {
+    width: 85px !important;
+    right: 12px !important;
+  }
+}
+/* ==================================================
+   HERO TITLE BEAUTIFUL SHADOW
+   Add as LAST block in style.css
+================================================== */
+
+.hero-title {
+  text-shadow:
+    2px 2px 0 rgba(120, 48, 55, 0.16),
+    5px 7px 0 rgba(120, 48, 55, 0.08),
+    0 14px 28px rgba(120, 48, 55, 0.20),
+    0 2px 10px rgba(255, 245, 230, 0.65) !important;
+}
+
+/* Text thickness balance */
+.hero-title span,
+.hero-title .title-line {
+  text-shadow:
+    2px 2px 0 rgba(120, 48, 55, 0.16),
+    5px 7px 0 rgba(120, 48, 55, 0.08),
+    0 14px 28px rgba(120, 48, 55, 0.20),
+    0 2px 10px rgba(255, 245, 230, 0.65) !important;
+}
+
+/* Falling items should fall fully to bottom */
+.falling-item {
+  animation-fill-mode: forwards !important;
+  will-change: transform !important;
+}
+
+.petals-layer {
+  overflow: hidden !important;
+}
+
+/* ==================================================
+   FALLING FLOWERS / LEAVES BEHIND TEXT + COUPLE
+   Add this as the LAST block in style.css
+================================================== */
+
+/* Falling flowers/leaves layer background level */
+.petals-layer {
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+}
+
+/* Falling items also stay behind content */
+.falling-item,
+.falling-petal,
+.falling-flower,
+.falling-leaf-img,
+.petal,
+.flower-dot,
+.leaf {
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Decorative fixed flowers stay lowest */
+.bg-flower {
+  z-index: 1 !important;
+}
+
+/* Main content should be above falling flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Title, couple image, all text should be clearly above */
+.hero-title,
+.couple-illustration,
+.couple-img,
+.intro-card p,
+.intro-card h2,
+.invite-text,
+.guest-block,
+.date-section *,
+.venue-section *,
+.closing * {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+/* Customize button must stay top */
+.edit-toggle,
+.editor {
+  z-index: 80 !important;
+}
+/* ==================================================
+   FALLING ITEMS FULL FALL FIX
+   No disappearing in the middle
+================================================== */
+
+.petals-layer {
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+}
+
+.falling-item {
+  position: absolute !important;
+  top: -18vh !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  opacity: 0.78;
+  will-change: transform;
+  animation-name: fullFall !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: 1 !important;
+  animation-fill-mode: forwards !important;
+}
+
+.falling-petal {
+  width: 18px;
+  height: 12px;
+  background: linear-gradient(135deg, #b9565d, #822f38);
+  border-radius: 90% 5% 90% 5%;
+  box-shadow: 0 3px 8px rgba(80, 20, 20, 0.15);
+}
+
+.falling-flower,
+.falling-leaf-img {
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 4px 7px rgba(90, 35, 35, 0.14));
+}
+
+.falling-flower {
+  width: 26px;
+  height: 26px;
+  opacity: 0.72;
+}
+
+.falling-leaf-img {
+  width: 24px;
+  height: auto;
+  opacity: 0.75;
+}
+
+@keyframes fullFall {
+  0% {
+    transform: translate3d(0, -18vh, 0) rotate(0deg) scale(var(--scale));
+  }
+
+  50% {
+    transform: translate3d(calc(var(--drift) / 2), 55vh, 0) rotate(250deg) scale(var(--scale));
+  }
+
+  100% {
+    transform: translate3d(var(--drift), 135vh, 0) rotate(580deg) scale(var(--scale));
+  }
+}
+
+/* keep falling items behind text and couple */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.hero-title,
+.couple-illustration,
+.couple-img,
+.intro-card *,
+.date-section *,
+.venue-section *,
+.closing * {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+@media (max-width: 700px) {
+  .falling-flower {
+    width: 22px;
+    height: 22px;
+  }
+
+  .falling-leaf-img {
+    width: 21px;
+  }
+
+  .falling-petal {
+    width: 16px;
+    height: 10px;
+  }
+}
+
