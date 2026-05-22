@@ -1044,3 +1044,1321 @@ body {
     opacity: 0.18;
   }
 }
+/* ==================================================
+   DESKTOP FULL WIDTH LAYOUT FIX
+   2nd screenshot style
+================================================== */
+
+/* Desktop background full invitation look */
+body {
+  background:
+    radial-gradient(circle at center, #fff9ef 0%, #fff0de 45%, #f9e1c9 100%) !important;
+}
+
+/* Main card should become full page on desktop */
+.invitation-card {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100vh !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.78), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(154, 60, 65, 0.10), transparent 25%),
+    radial-gradient(circle at 6% 35%, rgba(201, 152, 85, 0.12), transparent 23%),
+    linear-gradient(90deg, rgba(255, 246, 231, 0.92), rgba(250, 228, 207, 0.62), rgba(255, 246, 231, 0.92)) !important;
+}
+
+/* Hero full desktop spacing */
+.hero {
+  min-height: 92vh !important;
+  padding: 28px 24px 20px !important;
+  display: grid !important;
+  place-items: center !important;
+  align-content: center !important;
+  gap: 10px !important;
+}
+
+/* Desktop headline like 2nd screenshot */
+.hero-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  color: #963d42 !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  line-height: 0.88 !important;
+  letter-spacing: 0.015em !important;
+  font-size: clamp(82px, 8.8vw, 150px) !important;
+  width: 100% !important;
+  max-width: 1800px !important;
+  margin: 0 auto 18px !important;
+  text-shadow:
+    0 7px 0 rgba(120, 55, 55, 0.09),
+    0 18px 32px rgba(120, 55, 55, 0.13) !important;
+}
+
+.hero-title span {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+/* Couple image size for desktop */
+.couple-illustration {
+  width: min(360px, 28vw) !important;
+  margin: 0 auto 22px !important;
+  z-index: 4 !important;
+}
+
+.couple-img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Intro text desktop position */
+.intro-card {
+  max-width: 950px !important;
+  margin: 0 auto !important;
+  padding: 10px 24px 36px !important;
+}
+
+.intro-card p {
+  font-size: clamp(22px, 1.8vw, 32px) !important;
+  line-height: 1.75 !important;
+}
+
+/* Flowers should stay background, not too dark */
+.bg-flower {
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Desktop flower placement like full page */
+.flower-1 {
+  width: 380px !important;
+  top: -70px !important;
+  left: -60px !important;
+  opacity: 0.42 !important;
+}
+
+.flower-11 {
+  width: 400px !important;
+  top: -45px !important;
+  right: -70px !important;
+  opacity: 0.36 !important;
+}
+
+.flower-4 {
+  width: 260px !important;
+  top: 145px !important;
+  right: 170px !important;
+  opacity: 0.20 !important;
+}
+
+.flower-8 {
+  width: 360px !important;
+  top: 590px !important;
+  right: -95px !important;
+  opacity: 0.18 !important;
+}
+
+.flower-9 {
+  width: 260px !important;
+  top: 600px !important;
+  left: -40px !important;
+  opacity: 0.24 !important;
+}
+
+/* Keep customize button fixed nicely */
+.edit-toggle {
+  position: fixed !important;
+  right: 28px !important;
+  top: 24px !important;
+  z-index: 50 !important;
+}
+
+/* ==================================================
+   MOBILE STILL CARD STYLE
+================================================== */
+
+@media (max-width: 700px) {
+  body {
+    background: #303030 !important;
+  }
+
+  .invitation-card {
+    width: calc(100vw - 20px) !important;
+    margin: 10px auto !important;
+    border: 1px solid rgba(80, 50, 45, 0.28) !important;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28) !important;
+    background:
+      radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.8), transparent 25%),
+      radial-gradient(circle at 18% 20%, rgba(150, 61, 66, 0.13), transparent 30%),
+      radial-gradient(circle at 82% 38%, rgba(201, 152, 85, 0.12), transparent 24%),
+      linear-gradient(180deg, #fff5e8 0%, #fff0df 42%, #f8dfc8 100%) !important;
+  }
+
+  .hero {
+    min-height: 560px !important;
+    padding: 34px 18px 0 !important;
+  }
+
+  .hero-title {
+    font-size: clamp(46px, 11.8vw, 72px) !important;
+    line-height: 0.86 !important;
+    max-width: 100% !important;
+    margin-top: 6px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .couple-illustration {
+    width: min(360px, 66vw) !important;
+  }
+}
+
+/* ==================================================
+   LIGHTER BACKGROUND COLOR FIX
+================================================== */
+
+body {
+  background:
+    radial-gradient(circle at center, #fffdf7 0%, #fff6ea 48%, #fce8d5 100%) !important;
+}
+
+.invitation-card {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.95), transparent 34%),
+    radial-gradient(circle at 88% 8%, rgba(154, 60, 65, 0.06), transparent 25%),
+    radial-gradient(circle at 6% 35%, rgba(201, 152, 85, 0.07), transparent 24%),
+    linear-gradient(
+      90deg,
+      #fffaf1 0%,
+      #fff6ec 45%,
+      #fffaf2 100%
+    ) !important;
+}
+
+/* flowers ටික background එකට soft වෙන්න */
+.bg-flower {
+  opacity: 0.24 !important;
+  filter: sepia(0.04) saturate(0.75) brightness(1.18) !important;
+}
+
+/* specific large flowers තවත් light කරන්න */
+.flower-1 {
+  opacity: 0.26 !important;
+}
+
+.flower-11 {
+  opacity: 0.24 !important;
+}
+
+.flower-4,
+.flower-8,
+.flower-bottom-right-big,
+.flower-bottom-right-soft {
+  opacity: 0.16 !important;
+}
+
+/* title readability maintain කරන්න */
+.hero-title {
+  color: #963d42 !important;
+  text-shadow:
+    0 6px 0 rgba(120, 55, 55, 0.07),
+    0 14px 24px rgba(120, 55, 55, 0.10) !important;
+}
+/* ==================================================
+   MOBILE TOP FLOWERS SIZE FIX
+   top flowers smaller + softer
+================================================== */
+
+@media (max-width: 700px) {
+  .flower-1 {
+    width: 170px !important;
+    top: -35px !important;
+    left: -55px !important;
+    opacity: 0.22 !important;
+  }
+
+  .flower-3 {
+    width: 145px !important;
+    top: 18px !important;
+    left: 58px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-4 {
+    width: 150px !important;
+    top: 42px !important;
+    right: 44px !important;
+    opacity: 0.15 !important;
+  }
+
+  .flower-6 {
+    width: 120px !important;
+    top: 88px !important;
+    right: -42px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-11 {
+    width: 190px !important;
+    top: -22px !important;
+    right: -70px !important;
+    opacity: 0.20 !important;
+  }
+
+  .hero-title {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .couple-illustration {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .flower-1 {
+    width: 150px !important;
+    top: -30px !important;
+    left: -50px !important;
+    opacity: 0.20 !important;
+  }
+
+  .flower-3 {
+    width: 125px !important;
+    top: 20px !important;
+    left: 45px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-4 {
+    width: 130px !important;
+    top: 50px !important;
+    right: 24px !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-6 {
+    width: 105px !important;
+    top: 92px !important;
+    right: -38px !important;
+    opacity: 0.15 !important;
+  }
+
+  .flower-11 {
+    width: 165px !important;
+    top: -18px !important;
+    right: -62px !important;
+    opacity: 0.18 !important;
+  }
+}
+
+/* ==================================================
+   FINAL MOBILE LOOK - MATCH SCREENSHOT STYLE
+   Bigger title + bigger couple + balanced flowers
+================================================== */
+
+@media (max-width: 700px) {
+  body {
+    background: #303030 !important;
+  }
+
+  .invitation-card {
+    width: calc(100vw - 14px) !important;
+    margin: 8px auto !important;
+    border: 1px solid rgba(80, 50, 45, 0.28) !important;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28) !important;
+    background:
+      radial-gradient(circle at 50% 12%, rgba(255,255,255,0.92), transparent 25%),
+      linear-gradient(180deg, #fff6e9 0%, #fff0df 44%, #f9dfc8 100%) !important;
+  }
+
+  .hero {
+    min-height: 760px !important;
+    padding: 28px 12px 0 !important;
+    align-content: start !important;
+    gap: 10px !important;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    color: #963d42 !important;
+    font-size: clamp(58px, 13.6vw, 86px) !important;
+    line-height: 0.86 !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.008em !important;
+    max-width: 100% !important;
+    margin: 22px auto 18px !important;
+    text-shadow:
+      0 6px 0 rgba(120, 55, 55, 0.09),
+      0 18px 28px rgba(120, 55, 55, 0.14) !important;
+  }
+
+  .hero-title span {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+  .couple-illustration {
+    width: min(430px, 74vw) !important;
+    margin: 8px auto 0 !important;
+    z-index: 5 !important;
+  }
+
+  .couple-img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 18px 28px rgba(91, 39, 39, 0.22)) !important;
+  }
+
+  .intro-card {
+    padding: 24px 24px 30px !important;
+    margin-top: 0 !important;
+  }
+
+  .intro-card p {
+    font-size: clamp(28px, 4.7vw, 36px) !important;
+    line-height: 2.05 !important;
+    color: #3d2428 !important;
+    font-weight: 400 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .intro-card h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(56px, 9.2vw, 76px) !important;
+    line-height: 1 !important;
+    margin: 24px 0 22px !important;
+    color: #963d42 !important;
+  }
+
+  .intro-card h2 em {
+    color: #c99855 !important;
+    font-size: 0.62em !important;
+    margin: 0 16px !important;
+  }
+
+  .invite-text {
+    font-size: clamp(28px, 4.6vw, 36px) !important;
+    line-height: 1.85 !important;
+  }
+
+  .guest-block {
+    margin-top: 22px !important;
+  }
+
+  .guest-block strong {
+    font-size: 32px !important;
+    color: #963d42 !important;
+  }
+
+  .guest-block span {
+    font-size: 26px !important;
+  }
+
+  /* flowers - screenshot style bigger but soft */
+  .bg-flower {
+    filter: sepia(0.06) saturate(0.85) brightness(1.08) !important;
+  }
+
+  .flower-1 {
+    width: 300px !important;
+    top: -28px !important;
+    left: -95px !important;
+    opacity: 0.42 !important;
+  }
+
+  .flower-3 {
+    width: 230px !important;
+    top: 22px !important;
+    left: 72px !important;
+    opacity: 0.30 !important;
+  }
+
+  .flower-4 {
+    width: 230px !important;
+    top: 64px !important;
+    right: 70px !important;
+    opacity: 0.24 !important;
+  }
+
+  .flower-6 {
+    width: 160px !important;
+    top: 116px !important;
+    right: -55px !important;
+    opacity: 0.25 !important;
+  }
+
+  .flower-11 {
+    width: 330px !important;
+    top: -10px !important;
+    right: -120px !important;
+    opacity: 0.38 !important;
+  }
+
+  .flower-8 {
+    width: 300px !important;
+    top: 520px !important;
+    right: -118px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-9 {
+    width: 190px !important;
+    top: 680px !important;
+    left: -70px !important;
+    opacity: 0.28 !important;
+  }
+
+  .flower-bottom-right-big {
+    width: 430px !important;
+    right: -190px !important;
+    top: 820px !important;
+    opacity: 0.25 !important;
+  }
+
+  .flower-bottom-right-soft {
+    width: 360px !important;
+    right: -150px !important;
+    top: 1030px !important;
+    opacity: 0.18 !important;
+  }
+
+  .edit-toggle {
+    right: 16px !important;
+    top: 18px !important;
+    padding: 12px 22px !important;
+    font-size: 15px !important;
+    z-index: 60 !important;
+  }
+}
+
+/* iPhone / small mobile exact tuning */
+@media (max-width: 430px) {
+  .invitation-card {
+    width: calc(100vw - 10px) !important;
+    margin: 6px auto !important;
+  }
+
+  .hero {
+    min-height: 735px !important;
+    padding-top: 22px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(54px, 14vw, 72px) !important;
+    line-height: 0.86 !important;
+    margin-top: 18px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .couple-illustration {
+    width: min(410px, 78vw) !important;
+  }
+
+  .intro-card {
+    padding-inline: 22px !important;
+  }
+
+  .intro-card p {
+    font-size: 28px !important;
+    line-height: 2.05 !important;
+  }
+
+  .intro-card h2 {
+    font-size: 56px !important;
+  }
+
+  .invite-text {
+    font-size: 28px !important;
+  }
+
+  .flower-1 {
+    width: 285px !important;
+    top: -25px !important;
+    left: -100px !important;
+    opacity: 0.42 !important;
+  }
+
+  .flower-3 {
+    width: 220px !important;
+    top: 24px !important;
+    left: 62px !important;
+    opacity: 0.30 !important;
+  }
+
+  .flower-4 {
+    width: 215px !important;
+    top: 66px !important;
+    right: 42px !important;
+    opacity: 0.23 !important;
+  }
+
+  .flower-6 {
+    width: 150px !important;
+    top: 116px !important;
+    right: -60px !important;
+    opacity: 0.25 !important;
+  }
+
+  .flower-11 {
+    width: 315px !important;
+    top: -8px !important;
+    right: -125px !important;
+    opacity: 0.38 !important;
+  }
+
+  .flower-8 {
+    width: 285px !important;
+    top: 510px !important;
+    right: -125px !important;
+  }
+
+  .flower-9 {
+    width: 175px !important;
+    top: 660px !important;
+    left: -74px !important;
+  }
+
+  .flower-bottom-right-big {
+    width: 410px !important;
+    right: -190px !important;
+    top: 795px !important;
+  }
+
+  .flower-bottom-right-soft {
+    width: 340px !important;
+    right: -150px !important;
+    top: 1010px !important;
+  }
+}
+/* ==================================================
+   FINAL MOBILE CLEAN FIX
+   Screenshot-like balanced layout
+================================================== */
+
+@media (max-width: 700px) {
+  body {
+    background: #303030 !important;
+  }
+
+  .invitation-card {
+    width: calc(100vw - 12px) !important;
+    margin: 6px auto !important;
+    border: 1px solid rgba(80, 50, 45, 0.22) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22) !important;
+    background:
+      radial-gradient(circle at 50% 12%, rgba(255,255,255,0.92), transparent 24%),
+      linear-gradient(180deg, #fff7ec 0%, #fff2e4 45%, #fbe6d3 100%) !important;
+    overflow: hidden !important;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 560px !important;
+    padding: 18px 14px 0 !important;
+    gap: 8px !important;
+    align-content: start !important;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    color: #9a4045 !important;
+    font-size: clamp(42px, 11vw, 60px) !important;
+    line-height: 0.88 !important;
+    font-style: italic !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.004em !important;
+    text-transform: uppercase !important;
+    margin: 10px auto 12px !important;
+    max-width: 100% !important;
+    text-shadow:
+      0 4px 0 rgba(120, 55, 55, 0.07),
+      0 10px 20px rgba(120, 55, 55, 0.10) !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .hero-title span {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+  .couple-illustration {
+    width: min(300px, 58vw) !important;
+    margin: 4px auto 0 !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .couple-img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 12px 20px rgba(91, 39, 39, 0.18)) !important;
+  }
+
+  /* TEXT CONTENT */
+  .intro-card {
+    padding: 16px 22px 24px !important;
+    margin-top: 0 !important;
+  }
+
+  .intro-card p {
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+    margin-bottom: 10px !important;
+    color: #3c2629 !important;
+  }
+
+  .intro-card h2 {
+    font-size: 34px !important;
+    margin: 18px 0 14px !important;
+    line-height: 1.05 !important;
+    color: #963d42 !important;
+  }
+
+  .intro-card h2 em {
+    font-size: 0.62em !important;
+    margin: 0 10px !important;
+    color: #c99855 !important;
+  }
+
+  .invite-text {
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+  }
+
+  .guest-block {
+    margin-top: 14px !important;
+    gap: 4px !important;
+  }
+
+  .guest-block strong {
+    font-size: 22px !important;
+    color: #963d42 !important;
+  }
+
+  .guest-block span {
+    font-size: 16px !important;
+  }
+
+  /* DATE / VENUE / CLOSING */
+  .date-section,
+  .venue-section,
+  .closing {
+    padding: 22px 18px !important;
+  }
+
+  .date-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .date-side {
+    font-size: 22px !important;
+  }
+
+  .date-center {
+    width: 150px !important;
+    margin: auto !important;
+    padding: 10px 0 !important;
+  }
+
+  .date-center span {
+    font-size: 20px !important;
+  }
+
+  .date-center strong {
+    font-size: 52px !important;
+  }
+
+  .time {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+  }
+
+  .venue-section h2 {
+    font-size: 30px !important;
+  }
+
+  .venue-section p {
+    font-size: 17px !important;
+  }
+
+  .map-btn {
+    padding: 11px 20px !important;
+    font-size: 14px !important;
+  }
+
+  .closing p {
+    font-size: 24px !important;
+  }
+
+  .closing span {
+    font-size: 11px !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .closing h3 {
+    font-size: 28px !important;
+  }
+
+  /* CUSTOMIZE BUTTON */
+  .edit-toggle {
+    right: 14px !important;
+    top: 14px !important;
+    padding: 10px 18px !important;
+    font-size: 14px !important;
+    z-index: 60 !important;
+  }
+
+  /* ----------------------------------
+     FLOWERS - smaller and softer
+  ---------------------------------- */
+  .bg-flower {
+    z-index: 1 !important;
+    filter: sepia(0.05) saturate(0.78) brightness(1.08) !important;
+    transform-origin: center !important;
+  }
+
+  .flower-1 {
+    width: 190px !important;
+    top: -18px !important;
+    left: -55px !important;
+    opacity: 0.30 !important;
+  }
+
+  .flower-3 {
+    width: 145px !important;
+    top: 28px !important;
+    left: 55px !important;
+    opacity: 0.20 !important;
+  }
+
+  .flower-4 {
+    width: 145px !important;
+    top: 72px !important;
+    right: 34px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-6 {
+    width: 110px !important;
+    top: 86px !important;
+    right: -34px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-11 {
+    width: 210px !important;
+    top: -10px !important;
+    right: -70px !important;
+    opacity: 0.22 !important;
+  }
+
+  .flower-8 {
+    width: 170px !important;
+    top: 470px !important;
+    right: -70px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-9 {
+    width: 135px !important;
+    top: 540px !important;
+    left: -45px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-bottom-right-big {
+    width: 250px !important;
+    right: -105px !important;
+    top: 900px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-bottom-right-soft {
+    width: 220px !important;
+    right: -90px !important;
+    top: 1040px !important;
+    opacity: 0.12 !important;
+  }
+}
+
+/* Smaller phones - exact fine tuning */
+@media (max-width: 430px) {
+  .hero {
+    min-height: 540px !important;
+    padding-top: 16px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 10.8vw, 54px) !important;
+    line-height: 0.9 !important;
+  }
+
+  .couple-illustration {
+    width: min(280px, 56vw) !important;
+  }
+
+  .intro-card p,
+  .invite-text {
+    font-size: 17px !important;
+  }
+
+  .intro-card h2 {
+    font-size: 32px !important;
+  }
+
+  .guest-block strong {
+    font-size: 21px !important;
+  }
+
+  .guest-block span {
+    font-size: 15px !important;
+  }
+
+  .flower-1 {
+    width: 175px !important;
+    left: -52px !important;
+    top: -16px !important;
+  }
+
+  .flower-3 {
+    width: 135px !important;
+    left: 48px !important;
+    top: 30px !important;
+  }
+
+  .flower-4 {
+    width: 135px !important;
+    right: 22px !important;
+    top: 76px !important;
+  }
+
+  .flower-6 {
+    width: 105px !important;
+    right: -36px !important;
+    top: 92px !important;
+  }
+
+  .flower-11 {
+    width: 195px !important;
+    right: -75px !important;
+    top: -8px !important;
+  }
+}
+
+/* ==================================================
+   REMOVE ROUND / CIRCLE BACKGROUND PATTERNS
+================================================== */
+
+/* old ring elements */
+.soft-rings,
+.ring-left,
+.ring-right {
+  display: none !important;
+  background: none !important;
+}
+
+/* if circles are coming from extra decorative layers */
+.page-bg::before,
+.page-bg::after,
+.invitation-card::before,
+.invitation-card::after {
+  background: none !important;
+  display: none !important;
+  content: none !important;
+}
+
+/* if any extra circular overlay class is used */
+.circle-bg,
+.circle-pattern,
+.ring-pattern,
+.radial-rings,
+.bg-rings {
+  display: none !important;
+  background: none !important;
+}
+
+/* if circles are directly added on sections */
+.hero::before,
+.hero::after,
+.intro-card::before,
+.intro-card::after {
+  background-image: none !important;
+  display: none !important;
+  content: none !important;
+}
+/* ==================================================
+   TOP FLOWERS - slightly bigger + more visible
+================================================== */
+
+@media (max-width: 700px) {
+  .flower-1 {
+    width: 210px !important;
+    top: -20px !important;
+    left: -58px !important;
+    opacity: 0.36 !important;
+  }
+
+  .flower-3 {
+    width: 160px !important;
+    top: 26px !important;
+    left: 58px !important;
+    opacity: 0.26 !important;
+  }
+
+  .flower-4 {
+    width: 160px !important;
+    top: 68px !important;
+    right: 38px !important;
+    opacity: 0.23 !important;
+  }
+
+  .flower-6 {
+    width: 120px !important;
+    top: 82px !important;
+    right: -30px !important;
+    opacity: 0.22 !important;
+  }
+
+  .flower-11 {
+    width: 235px !important;
+    top: -8px !important;
+    right: -72px !important;
+    opacity: 0.28 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .flower-1 {
+    width: 200px !important;
+    top: -18px !important;
+    left: -56px !important;
+    opacity: 0.35 !important;
+  }
+
+  .flower-3 {
+    width: 150px !important;
+    top: 28px !important;
+    left: 52px !important;
+    opacity: 0.25 !important;
+  }
+
+  .flower-4 {
+    width: 150px !important;
+    top: 70px !important;
+    right: 28px !important;
+    opacity: 0.22 !important;
+  }
+
+  .flower-6 {
+    width: 115px !important;
+    top: 86px !important;
+    right: -32px !important;
+    opacity: 0.21 !important;
+  }
+
+  .flower-11 {
+    width: 225px !important;
+    top: -6px !important;
+    right: -74px !important;
+    opacity: 0.27 !important;
+  }
+}
+/* ==================================================
+   BOTTOM RIGHT + BOTTOM LEFT FLOWERS
+================================================== */
+
+/* bottom right main flower */
+.flower-bottom-right-main {
+  width: 320px;
+  right: -120px;
+  top: 980px;
+  opacity: 0.20;
+  transform: rotate(8deg);
+  animation: bottomRightRotate 80s linear infinite;
+}
+
+/* bottom right soft supporting flower */
+.flower-bottom-right-soft {
+  width: 250px;
+  right: -70px;
+  top: 860px;
+  opacity: 0.14;
+  transform: rotate(-10deg);
+  animation: bottomRightFloat 12s ease-in-out infinite;
+}
+
+/* bottom left branch */
+.flower-bottom-left-branch {
+  width: 210px;
+  left: -55px;
+  top: 1040px;
+  opacity: 0.16;
+  transform: rotate(-18deg);
+  animation: bottomLeftBranchFloat 10s ease-in-out infinite;
+}
+
+/* bottom left large soft flower */
+.flower-bottom-left-main {
+  width: 260px;
+  left: -85px;
+  top: 900px;
+  opacity: 0.13;
+  transform: rotate(-12deg);
+  animation: bottomLeftRotate 85s linear infinite;
+}
+
+/* animations */
+@keyframes bottomRightRotate {
+  0% {
+    transform: rotate(8deg) scale(1);
+  }
+  50% {
+    transform: rotate(188deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(368deg) scale(1);
+  }
+}
+
+@keyframes bottomRightFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-10deg) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-4deg) scale(1.02);
+  }
+}
+
+@keyframes bottomLeftRotate {
+  0% {
+    transform: rotate(-12deg) scale(1);
+  }
+  50% {
+    transform: rotate(168deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(348deg) scale(1);
+  }
+}
+
+@keyframes bottomLeftBranchFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-18deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-12deg);
+  }
+}
+@media (max-width: 700px) {
+  .flower-bottom-right-main {
+    width: 260px !important;
+    right: -110px !important;
+    top: 760px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-bottom-right-soft {
+    width: 210px !important;
+    right: -65px !important;
+    top: 670px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-bottom-left-branch {
+    width: 165px !important;
+    left: -42px !important;
+    top: 980px !important;
+    opacity: 0.15 !important;
+  }
+
+  .flower-bottom-left-main {
+    width: 210px !important;
+    left: -70px !important;
+    top: 840px !important;
+    opacity: 0.12 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .flower-bottom-right-main {
+    width: 245px !important;
+    right: -105px !important;
+    top: 735px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-bottom-right-soft {
+    width: 195px !important;
+    right: -60px !important;
+    top: 655px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-bottom-left-branch {
+    width: 150px !important;
+    left: -40px !important;
+    top: 950px !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-bottom-left-main {
+    width: 195px !important;
+    left: -68px !important;
+    top: 820px !important;
+    opacity: 0.11 !important;
+  }
+}
+
+/* ==================================================
+   RIGHT SIDE BOTTOM FLOWER STACK
+   Order: 4-md.webp → 8-md.webp → 1-md.webp
+================================================== */
+
+.rb-flower-4 {
+  width: 360px;
+  right: -135px;
+  top: 820px;
+  opacity: 0.20;
+  z-index: 1;
+  transform: rotate(10deg);
+  animation: rbFlowerRotateSlow 90s linear infinite;
+}
+
+.rb-flower-8 {
+  width: 310px;
+  right: -95px;
+  top: 920px;
+  opacity: 0.16;
+  z-index: 1;
+  transform: rotate(-8deg);
+  animation: rbFlowerFloat 12s ease-in-out infinite;
+}
+
+.rb-flower-1 {
+  width: 300px;
+  right: -125px;
+  top: 1040px;
+  opacity: 0.15;
+  z-index: 1;
+  transform: rotate(18deg);
+  animation: rbFlowerRotateReverse 95s linear infinite;
+}
+
+/* content always above background flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes rbFlowerRotateSlow {
+  0% {
+    transform: rotate(10deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(190deg) scale(1.03);
+  }
+
+  100% {
+    transform: rotate(370deg) scale(1);
+  }
+}
+
+@keyframes rbFlowerRotateReverse {
+  0% {
+    transform: rotate(18deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-162deg) scale(1.025);
+  }
+
+  100% {
+    transform: rotate(-342deg) scale(1);
+  }
+}
+
+@keyframes rbFlowerFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-2deg) scale(1.025);
+  }
+}
+
+/* Mobile right side bottom flower stack */
+@media (max-width: 700px) {
+  .rb-flower-4 {
+    width: 280px !important;
+    right: -115px !important;
+    top: 750px !important;
+    opacity: 0.20 !important;
+  }
+
+  .rb-flower-8 {
+    width: 235px !important;
+    right: -80px !important;
+    top: 840px !important;
+    opacity: 0.15 !important;
+  }
+
+  .rb-flower-1 {
+    width: 235px !important;
+    right: -105px !important;
+    top: 930px !important;
+    opacity: 0.14 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .rb-flower-4 {
+    width: 255px !important;
+    right: -110px !important;
+    top: 730px !important;
+    opacity: 0.20 !important;
+  }
+
+  .rb-flower-8 {
+    width: 215px !important;
+    right: -75px !important;
+    top: 820px !important;
+    opacity: 0.15 !important;
+  }
+
+  .rb-flower-1 {
+    width: 215px !important;
+    right: -100px !important;
+    top: 905px !important;
+    opacity: 0.14 !important;
+  }
+}
