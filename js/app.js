@@ -1,4 +1,4 @@
-const defaultData = {
+const defaults = {
   headline: 'Two souls, One blessed\njourney',
   brideName: 'Prashani',
   groomName: 'Sanjaya',
@@ -17,101 +17,118 @@ const defaultData = {
   finalWish: 'Your blessed presence is awaited'
 };
 
-const ids = ['headline','brideParents','groomParents','brideName','groomName','guestName','day','month','date','year','time','poruwa','venue','location','finalWish'];
-const form = document.getElementById('inviteForm');
-const editor = document.getElementById('editorPanel');
-const params = new URLSearchParams(location.search);
+const $ = (selector) => document.querySelector(selector);
+const form = $('#inviteForm');
+const params = new URLSearchParams(window.location.search);
 
-function urlData(){
-  const data = {};
-  Object.keys(defaultData).forEach(key => {
-    const value = params.get(key);
-    if(value) data[key] = decodeURIComponent(value);
+function getState() {
+  const state = { ...defaults };
+  Object.keys(defaults).forEach((key) => {
+    if (params.has(key)) state[key] = params.get(key);
   });
-  return data;
+  return state;
 }
 
-function getData(){
-  const saved = JSON.parse(localStorage.getItem('weddingInviteData') || '{}');
-  return {...defaultData, ...saved, ...urlData()};
-}
-
-function setText(id, value){
+function setText(id, value) {
   const el = document.getElementById(id);
-  if(!el) return;
-  if(id === 'headline') el.innerHTML = String(value).replace(/\n/g, '<br/>');
-  else el.textContent = value;
+  if (el) el.textContent = value;
 }
 
-function render(data){
-  ids.forEach(id => setText(id, data[id]));
-  document.getElementById('closingBride').textContent = data.brideName;
-  document.getElementById('closingGroom').textContent = data.groomName;
-  document.getElementById('mapLink').href = data.mapLink;
-  Object.keys(defaultData).forEach(key => {
-    if(form.elements[key]) form.elements[key].value = data[key];
+function render(state) {
+  const headline = document.getElementById('headline');
+  if (headline) headline.innerHTML = String(state.headline).split('\n').map(x => x.trim()).join('<br />');
+  setText('brideParents', state.brideParents);
+  setText('groomParents', state.groomParents);
+  setText('brideName', state.brideName);
+  setText('groomName', state.groomName);
+  setText('closingBride', state.brideName);
+  setText('closingGroom', state.groomName);
+  setText('guestName', state.guestName);
+  setText('day', state.day);
+  setText('month', state.month.toUpperCase());
+  setText('date', state.date);
+  setText('year', state.year);
+  setText('time', state.time);
+  setText('poruwa', state.poruwa);
+  setText('venue', state.venue);
+  setText('location', state.location);
+  setText('finalWish', state.finalWish);
+  const mapLink = document.getElementById('mapLink');
+  if (mapLink) mapLink.href = state.mapLink;
+  document.title = `${state.brideName} & ${state.groomName} — Wedding Invitation for ${state.guestName}`;
+}
+
+function fillForm(state) {
+  Object.keys(defaults).forEach((key) => {
+    const input = form.elements[key];
+    if (input) input.value = state[key];
   });
-  document.title = `${data.brideName} & ${data.groomName} Wedding Invitation`;
 }
 
-function collectForm(){
-  const data = {};
-  Object.keys(defaultData).forEach(key => data[key] = form.elements[key]?.value.trim() || defaultData[key]);
-  return data;
+function buildUrl(state) {
+  const url = new URL(window.location.href);
+  url.search = '';
+  Object.entries(state).forEach(([key, value]) => {
+    if (String(value) !== String(defaults[key])) url.searchParams.set(key, value);
+  });
+  return url.toString();
 }
 
-form.addEventListener('submit', e => {
+let state = getState();
+render(state);
+fillForm(state);
+
+$('#editToggle').addEventListener('click', () => $('#editorPanel').classList.add('open'));
+$('#closeEditor').addEventListener('click', () => $('#editorPanel').classList.remove('open'));
+
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const data = collectForm();
-  localStorage.setItem('weddingInviteData', JSON.stringify(data));
-  render(data);
-  editor.classList.remove('open');
+  const formData = new FormData(form);
+  state = { ...defaults };
+  Object.keys(defaults).forEach((key) => state[key] = formData.get(key) || defaults[key]);
+  render(state);
+  history.replaceState(null, '', buildUrl(state));
+  $('#editorPanel').classList.remove('open');
 });
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-  localStorage.removeItem('weddingInviteData');
-  render(defaultData);
+$('#resetBtn').addEventListener('click', () => {
+  state = { ...defaults };
+  render(state);
+  fillForm(state);
+  history.replaceState(null, '', window.location.pathname);
 });
 
-document.getElementById('copyLinkBtn').addEventListener('click', async () => {
-  const data = collectForm();
-  const query = new URLSearchParams(data).toString();
-  const url = `${location.origin}${location.pathname}?${query}`;
-  try{
+$('#copyLinkBtn').addEventListener('click', async () => {
+  const formData = new FormData(form);
+  const current = { ...defaults };
+  Object.keys(defaults).forEach((key) => current[key] = formData.get(key) || defaults[key]);
+  const url = buildUrl(current);
+  try {
     await navigator.clipboard.writeText(url);
-    document.getElementById('copyLinkBtn').textContent = 'Copied URL ✓';
-    setTimeout(() => document.getElementById('copyLinkBtn').textContent = 'Copy Client URL', 1600);
-  }catch(err){
+    $('#copyLinkBtn').textContent = 'Copied ✓';
+  } catch {
     prompt('Copy this URL:', url);
   }
+  setTimeout(() => $('#copyLinkBtn').textContent = 'Copy Client URL', 1400);
 });
 
-document.getElementById('editToggle').addEventListener('click', () => editor.classList.add('open'));
-document.getElementById('closeEditor').addEventListener('click', () => editor.classList.remove('open'));
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add('show');
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-function createPetals(){
-  const layer = document.getElementById('petalsLayer');
-  for(let i=0;i<46;i++){
-    const el = document.createElement('span');
-    el.className = Math.random() > .78 ? 'flower-dot' : 'petal';
-    el.style.left = `${Math.random()*100}vw`;
-    el.style.animationDuration = `${8 + Math.random()*12}s`;
-    el.style.animationDelay = `${Math.random()*-15}s`;
-    el.style.setProperty('--drift', `${(Math.random()*260)-130}px`);
-    el.style.transform = `scale(${.7 + Math.random()*1.2})`;
-    layer.appendChild(el);
-  }
+const petalsLayer = document.getElementById('petalsLayer');
+function createPetal(index) {
+  const el = document.createElement('span');
+  const types = ['petal', 'flower-dot', 'leaf'];
+  el.className = types[index % types.length];
+  el.style.left = `${Math.random() * 100}vw`;
+  el.style.animationDuration = `${9 + Math.random() * 9}s`;
+  el.style.animationDelay = `${Math.random() * 7}s`;
+  el.style.setProperty('--drift', `${-70 + Math.random() * 140}px`);
+  el.style.transform = `rotate(${Math.random() * 360}deg)`;
+  petalsLayer.appendChild(el);
 }
-
-function revealOnScroll(){
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) entry.target.classList.add('show');
-    });
-  }, {threshold:.16});
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
-
-render(getData());
-createPetals();
-revealOnScroll();
+for (let i = 0; i < 48; i++) createPetal(i);
