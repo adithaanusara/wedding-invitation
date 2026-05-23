@@ -2,8 +2,15 @@ const defaults = {
   headline: 'Two souls, One blessed\njourney',
   brideName: 'Prashani',
   groomName: 'Sanjaya',
-  brideParents: 'Beloved daughter of Mr. Gamini Ariyawansa & Mrs. Renuka Liyanagedara',
-  groomParents: 'Beloved son of Mrs. Shanthi Samarasinghe & the late Mr. Susil Perera',
+ brideFatherName: 'Gamini Ariyawansa',
+brideFatherStatus: 'alive',
+brideMotherName: 'Renuka Liyanagedara',
+brideMotherStatus: 'alive',
+
+groomFatherName: 'Susil Perera',
+groomFatherStatus: 'late',
+groomMotherName: 'Shanthi Samarasinghe',
+groomMotherStatus: 'alive',
   guestName: 'Janith',
   day: 'Thursday',
   month: 'June',
@@ -32,6 +39,34 @@ function getState() {
 function setText(id, value) {
   const el = document.getElementById(id);
   if (el) el.textContent = value;
+}
+
+function parentTitle(gender, status) {
+  const title = gender === 'father' ? 'Mr.' : 'Mrs.';
+  return status === 'late' ? `the late ${title}` : title;
+}
+
+function buildParentsLine(type, state) {
+  if (type === 'bride') {
+    const father = `${parentTitle('father', state.brideFatherStatus)} ${state.brideFatherName}`;
+    const mother = `${parentTitle('mother', state.brideMotherStatus)} ${state.brideMotherName}`;
+
+    return `Beloved daughter of ${father} & ${mother}`;
+  }
+
+  const father = `${parentTitle('father', state.groomFatherStatus)} ${state.groomFatherName}`;
+  const mother = `${parentTitle('mother', state.groomMotherStatus)} ${state.groomMotherName}`;
+
+  /*
+    If father is late and mother is alive,
+    common wording sounds better with mother first:
+    Beloved son of Mrs. Shanthi ... & the late Mr. Susil ...
+  */
+  if (state.groomFatherStatus === 'late' && state.groomMotherStatus !== 'late') {
+    return `Beloved son of ${mother} & ${father}`;
+  }
+
+  return `Beloved son of ${father} & ${mother}`;
 }
 
 function render(state) {
@@ -121,35 +156,33 @@ document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
 /* ==================================================
    Mixed Falling Petals, Flowers and Leaves
 ================================================== */
+/* ==================================================
+   Mixed Falling Petals, Flowers and Leaves
+   Full card height fall - no middle disappear
+================================================== */
 
 const petalsLayer = document.getElementById('petalsLayer');
 
 const fallingAssets = [
-  {
-    type: 'petal'
-  },
-  {
-    type: 'petal'
-  },
-  {
-    type: 'flower',
-    src: 'assets/falling/fall-flower-1.webp'
-  },
-  {
-    type: 'flower',
-    src: 'assets/falling/fall-flower-2.webp'
-  },
-  {
-    type: 'leaf',
-    src: 'assets/falling/fall-leaf-1.webp'
-  }
+  { type: 'petal' },
+  { type: 'petal' },
+  { type: 'flower', src: 'assets/falling/fall-flower-1.webp' },
+  { type: 'flower', src: 'assets/falling/fall-flower-2.webp' },
+  { type: 'leaf', src: 'assets/falling/fall-leaf-1.webp' }
 ];
 
-function createFallingItem() {
+function getFallDistance() {
+  const card = document.querySelector('.invitation-card');
+
+  if (!card) return window.innerHeight + 300;
+
+  return card.scrollHeight + 300;
+}
+
+function createFallingItem(isInitial = false) {
   if (!petalsLayer) return;
 
   const itemData = fallingAssets[Math.floor(Math.random() * fallingAssets.length)];
-
   let item;
 
   if (itemData.type === 'petal') {
@@ -167,32 +200,67 @@ function createFallingItem() {
   }
 
   const startLeft = Math.random() * 100;
-  const drift = (Math.random() * 180 - 90).toFixed(0);
-  const duration = (16 + Math.random() * 12).toFixed(1);
-  const delay = (Math.random() * 5).toFixed(1);
-  const scale = (0.75 + Math.random() * 0.65).toFixed(2);
+  const drift = Math.random() * 180 - 90;
+  const duration = 18 + Math.random() * 12;
+  const scale = 0.75 + Math.random() * 0.65;
+  const fallDistance = getFallDistance();
+  const rotateEnd = 360 + Math.random() * 360;
 
   item.style.left = `${startLeft}%`;
-  item.style.setProperty('--drift', `${drift}px`);
-  item.style.setProperty('--scale', scale);
-  item.style.animationDuration = `${duration}s`;
-  item.style.animationDelay = `-${delay}s`;
+  item.style.top = `-120px`;
+  item.style.setProperty('--drift', `${drift.toFixed(0)}px`);
+  item.style.setProperty('--scale', scale.toFixed(2));
+  item.style.setProperty('--fall-distance', `${fallDistance}px`);
+  item.style.setProperty('--rotate-end', `${rotateEnd.toFixed(0)}deg`);
+  item.style.animationDuration = `${duration.toFixed(1)}s`;
+
+  /*
+    Initial items only: start at different places.
+    New items start from top.
+  */
+  if (isInitial) {
+    item.style.animationDelay = `-${(Math.random() * 8).toFixed(1)}s`;
+  } else {
+    item.style.animationDelay = '0s';
+  }
 
   petalsLayer.appendChild(item);
 
-  setTimeout(() => {
-  item.remove();
-}, (Number(duration) + 6) * 1000);
+  /*
+    IMPORTANT:
+    setTimeout remove karanna epa.
+    Animation fully iwara unama witharai remove wenne.
+  */
+  item.addEventListener('animationend', () => {
+    item.remove();
+  });
 }
 
 function startFallingAnimation() {
   if (!petalsLayer) return;
 
-  for (let i = 0; i < 30; i++) {
-    createFallingItem();
+  petalsLayer.innerHTML = '';
+
+  for (let i = 0; i < 36; i++) {
+    createFallingItem(true);
   }
 
-  setInterval(createFallingItem, 700);
+  setInterval(() => {
+    createFallingItem(false);
+  }, 700);
 }
 
-startFallingAnimation();
+/* ==================================================
+   Keep fixed flower layer aligned with invitation card
+================================================== */
+
+
+
+window.addEventListener('load', startFallingAnimation);
+
+window.addEventListener('resize', () => {
+  if (!petalsLayer) return;
+
+  petalsLayer.innerHTML = '';
+  startFallingAnimation();
+});

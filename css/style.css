@@ -4766,4 +4766,2252 @@ body {
     height: 10px;
   }
 }
+/* ==================================================
+   OPENING COUPLE ZOOM OUT INTRO
+   First couple close view -> fade -> final invitation
+================================================== */
 
+.opening-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    radial-gradient(circle at center, rgba(255, 250, 242, 0.96), rgba(249, 225, 205, 0.96)),
+    linear-gradient(180deg, #fff6e9, #f8dfc8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  animation: openingScreenFade 4.2s ease forwards;
+}
+
+.opening-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(150, 61, 66, 0.08), transparent 34%),
+    radial-gradient(circle at 20% 20%, rgba(201, 152, 85, 0.10), transparent 26%),
+    radial-gradient(circle at 85% 70%, rgba(150, 61, 66, 0.08), transparent 30%);
+  opacity: 1;
+}
+
+.opening-couple {
+  width: min(440px, 70vw);
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 22px 32px rgba(91, 39, 39, 0.22));
+  transform-origin: center center;
+  animation: coupleOpeningZoom 4.2s cubic-bezier(0.18, 0.9, 0.25, 1) forwards;
+}
+
+/* Page starts soft, then becomes normal */
+.invitation-card {
+  animation: invitationRevealAfterOpening 4.2s ease forwards;
+}
+
+/* couple first large -> zoom out -> disappear */
+@keyframes coupleOpeningZoom {
+  0% {
+    opacity: 1;
+    transform: scale(1.45) translateY(40px);
+  }
+
+  35% {
+    opacity: 1;
+    transform: scale(1.15) translateY(10px);
+  }
+
+  65% {
+    opacity: 0.86;
+    transform: scale(0.72) translateY(-55px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.48) translateY(-95px);
+  }
+}
+
+/* opening screen fade */
+@keyframes openingScreenFade {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  68% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* background page fade in like 2nd image -> final 3rd image */
+@keyframes invitationRevealAfterOpening {
+  0% {
+    opacity: 0.18;
+    filter: blur(1.5px);
+    transform: scale(1.03);
+  }
+
+  55% {
+    opacity: 0.35;
+    filter: blur(1px);
+    transform: scale(1.015);
+  }
+
+  80% {
+    opacity: 0.75;
+    filter: blur(0.4px);
+    transform: scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Mobile opening animation */
+@media (max-width: 700px) {
+  .opening-couple {
+    width: min(360px, 78vw);
+  }
+
+  @keyframes coupleOpeningZoom {
+    0% {
+      opacity: 1;
+      transform: scale(1.55) translateY(70px);
+    }
+
+    35% {
+      opacity: 1;
+      transform: scale(1.22) translateY(35px);
+    }
+
+    65% {
+      opacity: 0.86;
+      transform: scale(0.78) translateY(-35px);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(0.52) translateY(-75px);
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .opening-couple {
+    width: min(330px, 78vw);
+  }
+}
+
+/* ==================================================
+   OPENING COUPLE SIZE + SMOOTH ZOOM OUT FIX
+   Add this as the LAST block in style.css
+================================================== */
+
+.opening-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  background:
+    radial-gradient(circle at center, rgba(255, 250, 242, 0.96), rgba(249, 225, 205, 0.96)),
+    linear-gradient(180deg, #fff6e9, #f8dfc8) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  animation: openingScreenFadeFixed 4.6s ease forwards !important;
+}
+
+.opening-couple {
+  width: min(330px, 58vw) !important;
+  height: auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+  object-fit: contain !important;
+  transform-origin: center center !important;
+  filter: drop-shadow(0 18px 28px rgba(91, 39, 39, 0.20)) !important;
+  animation: coupleOpeningZoomFixed 4.6s cubic-bezier(0.18, 0.9, 0.25, 1) forwards !important;
+}
+
+/* Main invitation behind animation */
+.invitation-card {
+  animation: invitationRevealAfterOpeningFixed 4.6s ease forwards !important;
+}
+
+/* Smooth balanced zoom out */
+@keyframes coupleOpeningZoomFixed {
+  0% {
+    opacity: 1;
+    transform: scale(1.08) translateY(18px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(0.98) translateY(0);
+  }
+
+  62% {
+    opacity: 0.92;
+    transform: scale(0.72) translateY(-30px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.52) translateY(-55px);
+  }
+}
+
+@keyframes openingScreenFadeFixed {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  70% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes invitationRevealAfterOpeningFixed {
+  0% {
+    opacity: 0.18;
+    filter: blur(1px);
+    transform: scale(1.015);
+  }
+
+  55% {
+    opacity: 0.42;
+    filter: blur(0.8px);
+    transform: scale(1.008);
+  }
+
+  82% {
+    opacity: 0.82;
+    filter: blur(0.3px);
+    transform: scale(1.003);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Mobile exact fix */
+@media (max-width: 700px) {
+  .opening-couple {
+    width: min(300px, 64vw) !important;
+  }
+
+  @keyframes coupleOpeningZoomFixed {
+    0% {
+      opacity: 1;
+      transform: scale(1.06) translateY(18px);
+    }
+
+    30% {
+      opacity: 1;
+      transform: scale(0.96) translateY(0);
+    }
+
+    62% {
+      opacity: 0.92;
+      transform: scale(0.72) translateY(-24px);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(0.52) translateY(-45px);
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .opening-couple {
+    width: min(275px, 66vw) !important;
+  }
+}
+
+/* ==================================================
+   SMOOTH OPENING ZOOM OUT - NO MIDDLE BREAK
+   Add this as the LAST block in style.css
+================================================== */
+
+.opening-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at center, rgba(255, 250, 242, 0.96), rgba(249, 225, 205, 0.96)),
+    linear-gradient(180deg, #fff6e9, #f8dfc8) !important;
+
+  animation: openingScreenSmoothFade 5.2s ease-in-out forwards !important;
+}
+
+.opening-couple {
+  width: min(315px, 58vw) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 2 !important;
+  transform-origin: center center !important;
+  will-change: transform, opacity !important;
+  filter: drop-shadow(0 18px 28px rgba(91, 39, 39, 0.20)) !important;
+
+  animation: openingCoupleSmoothZoom 5.2s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+}
+
+/* Page behind slowly appears */
+.invitation-card {
+  animation: invitationSmoothReveal 5.2s ease-in-out forwards !important;
+}
+
+/* One continuous smooth motion */
+@keyframes openingCoupleSmoothZoom {
+  0% {
+    opacity: 1;
+    transform: scale(1.08) translate3d(0, 16px, 0);
+  }
+
+  18% {
+    opacity: 1;
+    transform: scale(1.03) translate3d(0, 8px, 0);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scale(0.88) translate3d(0, -8px, 0);
+  }
+
+  72% {
+    opacity: 0.72;
+    transform: scale(0.68) translate3d(0, -34px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.50) translate3d(0, -58px, 0);
+  }
+}
+
+@keyframes openingScreenSmoothFade {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  78% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes invitationSmoothReveal {
+  0% {
+    opacity: 0.22;
+    filter: blur(1px);
+    transform: scale(1.01);
+  }
+
+  50% {
+    opacity: 0.45;
+    filter: blur(0.7px);
+    transform: scale(1.006);
+  }
+
+  82% {
+    opacity: 0.78;
+    filter: blur(0.3px);
+    transform: scale(1.002);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .opening-couple {
+    width: min(285px, 64vw) !important;
+  }
+
+  @keyframes openingCoupleSmoothZoom {
+    0% {
+      opacity: 1;
+      transform: scale(1.08) translate3d(0, 18px, 0);
+    }
+
+    18% {
+      opacity: 1;
+      transform: scale(1.02) translate3d(0, 8px, 0);
+    }
+
+    45% {
+      opacity: 1;
+      transform: scale(0.88) translate3d(0, -6px, 0);
+    }
+
+    72% {
+      opacity: 0.72;
+      transform: scale(0.68) translate3d(0, -28px, 0);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(0.50) translate3d(0, -48px, 0);
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .opening-couple {
+    width: min(265px, 66vw) !important;
+  }
+}
+/* ==================================================
+   ONE SHOT SMOOTH ZOOM OUT - NO BREAKS
+   Add this as LAST block in style.css
+================================================== */
+
+.opening-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at center, rgba(255, 250, 242, 0.96), rgba(249, 225, 205, 0.96)),
+    linear-gradient(180deg, #fff6e9, #f8dfc8) !important;
+
+  animation: openingScreenOneFade 4.8s ease forwards !important;
+}
+
+.opening-couple {
+  width: min(300px, 60vw) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 2 !important;
+  transform-origin: center center !important;
+  will-change: transform, opacity !important;
+  filter: drop-shadow(0 18px 28px rgba(91, 39, 39, 0.20)) !important;
+
+  animation: openingCoupleOneZoom 4.8s ease-in-out forwards !important;
+}
+
+/* main page slowly visible */
+.invitation-card {
+  animation: invitationOneReveal 4.8s ease forwards !important;
+}
+
+/* එක පාරම smooth zoom out */
+@keyframes openingCoupleOneZoom {
+  from {
+    opacity: 1;
+    transform: scale(1.12) translateY(18px);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.48) translateY(-65px);
+  }
+}
+
+@keyframes openingScreenOneFade {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  88% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes invitationOneReveal {
+  from {
+    opacity: 0.22;
+    filter: blur(1px);
+    transform: scale(1.01);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .opening-couple {
+    width: min(270px, 64vw) !important;
+  }
+
+  @keyframes openingCoupleOneZoom {
+    from {
+      opacity: 1;
+      transform: scale(1.12) translateY(18px);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(0.50) translateY(-55px);
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .opening-couple {
+    width: min(250px, 66vw) !important;
+  }
+}
+
+/* ==================================================
+   FAST SMOOTH OPENING ZOOM OUT TO COUPLE PLACE
+   Add this as LAST block in style.css
+================================================== */
+
+.opening-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at center, rgba(255, 250, 242, 0.96), rgba(249, 225, 205, 0.96)),
+    linear-gradient(180deg, #fff6e9, #f8dfc8) !important;
+
+  animation: openingScreenFastFade 3.4s ease forwards !important;
+}
+
+.opening-couple {
+  width: min(300px, 60vw) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 2 !important;
+  transform-origin: center center !important;
+  will-change: transform, opacity, filter !important;
+  filter:
+    blur(2.5px)
+    drop-shadow(0 18px 28px rgba(91, 39, 39, 0.20)) !important;
+
+  animation: openingCoupleFastZoom 3.4s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+}
+
+/* Main invitation behind animation */
+.invitation-card {
+  animation: invitationFastReveal 3.4s ease forwards !important;
+}
+
+/* One smooth zoom-out, no middle break */
+@keyframes openingCoupleFastZoom {
+  0% {
+    opacity: 1;
+    filter:
+      blur(2.5px)
+      drop-shadow(0 18px 28px rgba(91, 39, 39, 0.20));
+    transform: scale(1.12) translate3d(0, 24px, 0);
+  }
+
+  100% {
+    opacity: 0;
+    filter:
+      blur(0px)
+      drop-shadow(0 10px 18px rgba(91, 39, 39, 0.10));
+    transform: scale(0.58) translate3d(0, -145px, 0);
+  }
+}
+
+@keyframes openingScreenFastFade {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  82% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Page blur smoothly reduce */
+@keyframes invitationFastReveal {
+  0% {
+    opacity: 0.18;
+    filter: blur(5px);
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .opening-couple {
+    width: min(270px, 64vw) !important;
+  }
+
+  @keyframes openingCoupleFastZoom {
+    0% {
+      opacity: 1;
+      filter:
+        blur(2.5px)
+        drop-shadow(0 18px 28px rgba(91, 39, 39, 0.20));
+      transform: scale(1.12) translate3d(0, 22px, 0);
+    }
+
+    100% {
+      opacity: 0;
+      filter:
+        blur(0px)
+        drop-shadow(0 10px 18px rgba(91, 39, 39, 0.10));
+      transform: scale(0.58) translate3d(0, -118px, 0);
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .opening-couple {
+    width: min(250px, 66vw) !important;
+  }
+
+  @keyframes openingCoupleFastZoom {
+    0% {
+      opacity: 1;
+      filter:
+        blur(2.5px)
+        drop-shadow(0 18px 28px rgba(91, 39, 39, 0.20));
+      transform: scale(1.12) translate3d(0, 22px, 0);
+    }
+
+    100% {
+      opacity: 0;
+      filter:
+        blur(0px)
+        drop-shadow(0 10px 18px rgba(91, 39, 39, 0.10));
+      transform: scale(0.58) translate3d(0, -105px, 0);
+    }
+  }
+}
+/* =========================
+   OPENING ZOOM WITH TEXT VISIBLE
+========================= */
+
+.opening-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+
+  /* page eka hanganne nathi light overlay ekak */
+  background: rgba(247, 239, 229, 0.18);
+
+  animation: openingScreenFade 2.8s ease forwards;
+}
+
+.opening-couple {
+  width: min(270px, 58vw);
+  height: auto;
+  object-fit: contain;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  filter: blur(3px) drop-shadow(0 18px 28px rgba(91, 39, 39, 0.16));
+
+  animation: openingCoupleZoomOut 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* main content eka start idnma pennanna */
+.invitation-card {
+  opacity: 0.72;
+  filter: blur(1.8px);
+  transform: scale(1.01);
+  animation: invitationReveal 2.8s ease forwards;
+}
+
+@keyframes openingCoupleZoomOut {
+  0% {
+    opacity: 1;
+    filter: blur(3px) drop-shadow(0 18px 28px rgba(91, 39, 39, 0.16));
+    transform: scale(1.12) translateY(22px);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(0px) drop-shadow(0 8px 14px rgba(91, 39, 39, 0.08));
+    transform: scale(0.60) translateY(-105px);
+  }
+}
+
+@keyframes invitationReveal {
+  0% {
+    opacity: 0.72;
+    filter: blur(1.8px);
+    transform: scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes openingScreenFade {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  85% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .opening-couple {
+    width: min(245px, 62vw);
+  }
+
+  @keyframes openingCoupleZoomOut {
+    0% {
+      opacity: 1;
+      filter: blur(3px) drop-shadow(0 18px 28px rgba(91, 39, 39, 0.16));
+      transform: scale(1.10) translateY(18px);
+    }
+
+    100% {
+      opacity: 0;
+      filter: blur(0px) drop-shadow(0 8px 14px rgba(91, 39, 39, 0.08));
+      transform: scale(0.58) translateY(-88px);
+    }
+  }
+}
+/* ==================================================
+   COUPLE IMAGE ONLY - SMOOTH ZOOM OUT
+   No overlay, no blur, text visible
+================================================== */
+
+.couple-intro-wrap {
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+.couple-intro-img {
+  transform-origin: center center !important;
+  will-change: transform !important;
+  
+}
+
+@keyframes coupleImageSmoothZoomOut {
+  from {
+    transform: scale(1.75) translateY(70px);
+  }
+
+  to {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .couple-intro-img {
+    
+  }
+
+  @keyframes coupleImageSmoothZoomOutMobile {
+    from {
+      transform: scale(1.85) translateY(88px);
+    }
+
+    to {
+      transform: scale(1) translateY(0);
+    }
+  }
+}
+
+/* Couple zoom out speed slow */
+.couple-intro-img {
+  transform-origin: center center !important;
+  will-change: transform !important;
+  animation: coupleImageSmoothZoomOut 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+}
+
+@media (max-width: 700px) {
+  .couple-intro-img {
+    animation: coupleImageSmoothZoomOutMobile 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+  }
+}
+
+/* ==================================================
+   FIXED DECORATIVE FLOWERS
+   Scroll weddi text witharai move wenne
+   Flowers stable widiyata thiyenawa
+================================================== */
+
+/* All background flowers stable on screen */
+.bg-flower {
+  position: fixed !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 1 !important;
+}
+
+/* Main content always above flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Text and couple image above flowers */
+.hero-title,
+.couple-illustration,
+.couple-img,
+.intro-card *,
+.date-section *,
+.venue-section *,
+.closing * {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+/* Customize button top */
+.edit-toggle,
+.editor {
+  z-index: 100 !important;
+}
+
+/* ==================================================
+   DESKTOP FIXED FLOWER POSITIONS
+================================================== */
+
+@media (min-width: 701px) {
+  .flower-top-left-main {
+    width: 390px !important;
+    top: -80px !important;
+    left: -100px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 300px !important;
+    top: 45px !important;
+    left: 140px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-top-right-main {
+    width: 470px !important;
+    top: -85px !important;
+    right: -115px !important;
+    opacity: 0.18 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 310px !important;
+    top: 125px !important;
+    right: 150px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 260px !important;
+    left: -90px !important;
+    top: 58vh !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 270px !important;
+    left: -120px !important;
+    top: 72vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 280px !important;
+    right: -115px !important;
+    top: 58vh !important;
+    opacity: 0.11 !important;
+  }
+
+  .desktop-bottom-flower-right {
+    width: 320px !important;
+    right: -120px !important;
+    bottom: -90px !important;
+    top: auto !important;
+    opacity: 0.13 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 230px !important;
+    right: 90px !important;
+    bottom: -75px !important;
+    top: auto !important;
+    left: auto !important;
+    opacity: 0.10 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 260px !important;
+    left: -90px !important;
+    bottom: -65px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 125px !important;
+    right: 120px !important;
+    bottom: 45px !important;
+    top: auto !important;
+    opacity: 0.16 !important;
+  }
+}
+
+/* ==================================================
+   MOBILE FIXED FLOWER POSITIONS
+================================================== */
+
+@media (max-width: 700px) {
+  .flower-top-left-main {
+    width: 215px !important;
+    top: 4px !important;
+    left: -72px !important;
+    opacity: 0.27 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 150px !important;
+    top: 55px !important;
+    left: 58px !important;
+    opacity: 0.15 !important;
+  }
+
+  .flower-top-right-main {
+    width: 205px !important;
+    top: 4px !important;
+    right: -82px !important;
+    opacity: 0.23 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 130px !important;
+    top: 103px !important;
+    right: -10px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 140px !important;
+    left: -45px !important;
+    top: 64vh !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 150px !important;
+    left: -55px !important;
+    top: 76vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 150px !important;
+    right: -70px !important;
+    top: 58vh !important;
+    opacity: 0.08 !important;
+  }
+
+  .desktop-bottom-flower-right {
+    width: 210px !important;
+    right: -88px !important;
+    bottom: -65px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 160px !important;
+    right: 18px !important;
+    bottom: -55px !important;
+    top: auto !important;
+    left: auto !important;
+    opacity: 0.09 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 150px !important;
+    left: -45px !important;
+    bottom: -35px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 88px !important;
+    right: 20px !important;
+    bottom: 80px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  /* mobile eke disturb wena loku right flowers hide */
+  .flower-bottom-right-base,
+  .flower-bottom-right-middle,
+  .flower-bottom-right-top,
+  .venue-flower-right,
+  .venue-flower-bottom-right,
+  .final-bottom-right-flower,
+  .very-bottom-right-flower,
+  .new-bottom-right-flower {
+    display: none !important;
+  }
+}
+/* ==================================================
+   REAL STABLE FLOWER LAYER
+   Text scrolls, flowers stay stable inside invitation
+   Add this as the LAST block in style.css
+================================================== */
+
+.invitation-card {
+  position: relative !important;
+  overflow: clip !important;
+}
+
+/* This layer stays pinned while content scrolls */
+.fixed-flower-layer {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh !important;
+  width: 100% !important;
+  margin-bottom: -100vh !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+/* Flowers are positioned inside the stable layer */
+.fixed-flower-layer .bg-flower {
+  position: absolute !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  object-fit: contain !important;
+  z-index: 1 !important;
+  transform-origin: center center !important;
+  filter: sepia(0.05) saturate(0.85) brightness(1.08) !important;
+}
+
+/* Content scrolls above flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Text / couple image always above flowers */
+.hero-title,
+.couple-illustration,
+.couple-img,
+.intro-card *,
+.date-section *,
+.venue-section *,
+.closing * {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+/* ==================================================
+   DESKTOP STABLE FLOWER POSITIONS
+================================================== */
+
+@media (min-width: 701px) {
+  .flower-top-left-main {
+    width: 390px !important;
+    top: -85px !important;
+    left: -110px !important;
+    opacity: 0.20 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 280px !important;
+    top: 42px !important;
+    left: 140px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-top-right-main {
+    width: 450px !important;
+    top: -90px !important;
+    right: -125px !important;
+    opacity: 0.20 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 280px !important;
+    top: 135px !important;
+    right: 145px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 250px !important;
+    top: 48vh !important;
+    left: -85px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 260px !important;
+    top: 68vh !important;
+    left: -115px !important;
+    opacity: 0.11 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 280px !important;
+    top: 46vh !important;
+    right: -115px !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-right {
+    width: 330px !important;
+    right: -125px !important;
+    bottom: -92px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 220px !important;
+    right: 80px !important;
+    bottom: -72px !important;
+    left: auto !important;
+    top: auto !important;
+    opacity: 0.10 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 250px !important;
+    left: -80px !important;
+    bottom: -58px !important;
+    top: auto !important;
+    opacity: 0.15 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 120px !important;
+    right: 115px !important;
+    bottom: 50px !important;
+    top: auto !important;
+    opacity: 0.17 !important;
+  }
+
+  .extra-left-side-flower {
+    width: 250px !important;
+    left: -105px !important;
+    top: 36vh !important;
+    opacity: 0.11 !important;
+  }
+
+  .extra-right-side-flower {
+    width: 255px !important;
+    right: -110px !important;
+    top: 32vh !important;
+    opacity: 0.11 !important;
+  }
+
+  .extra-middle-right-flower {
+    width: 230px !important;
+    right: -90px !important;
+    top: 62vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .extra-small-right-flower {
+    width: 115px !important;
+    right: 40px !important;
+    top: 74vh !important;
+    opacity: 0.15 !important;
+  }
+}
+
+/* ==================================================
+   MOBILE STABLE FLOWER POSITIONS
+================================================== */
+
+@media (max-width: 700px) {
+  .fixed-flower-layer {
+    height: 100vh !important;
+  }
+
+  .flower-top-left-main {
+    width: 215px !important;
+    top: -18px !important;
+    left: -75px !important;
+    opacity: 0.28 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 150px !important;
+    top: 38px !important;
+    left: 58px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-top-right-main {
+    width: 205px !important;
+    top: -16px !important;
+    right: -82px !important;
+    opacity: 0.23 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 130px !important;
+    top: 90px !important;
+    right: -8px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 135px !important;
+    left: -42px !important;
+    top: 52vh !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 145px !important;
+    left: -55px !important;
+    top: 70vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 150px !important;
+    right: -72px !important;
+    top: 48vh !important;
+    opacity: 0.08 !important;
+  }
+
+  .desktop-bottom-flower-right {
+    width: 210px !important;
+    right: -88px !important;
+    bottom: -65px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 155px !important;
+    right: 18px !important;
+    bottom: -55px !important;
+    left: auto !important;
+    top: auto !important;
+    opacity: 0.09 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 145px !important;
+    left: -42px !important;
+    bottom: -35px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 86px !important;
+    right: 18px !important;
+    bottom: 78px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  .extra-left-side-flower {
+    width: 150px !important;
+    left: -65px !important;
+    top: 38vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .extra-right-side-flower {
+    width: 150px !important;
+    right: -68px !important;
+    top: 35vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .extra-middle-right-flower {
+    width: 145px !important;
+    right: -62px !important;
+    top: 63vh !important;
+    opacity: 0.09 !important;
+  }
+
+  .extra-small-right-flower {
+    width: 82px !important;
+    right: 12px !important;
+    top: 76vh !important;
+    opacity: 0.14 !important;
+  }
+
+  /* Hide old section-based flowers that break the stable look */
+  .flower-bottom-right-base,
+  .flower-bottom-right-middle,
+  .flower-bottom-right-top,
+  .venue-flower-right,
+  .venue-flower-bottom-right,
+  .final-bottom-right-flower,
+  .new-bottom-right-flower {
+    display: none !important;
+  }
+}
+/* ==================================================
+   FALLING FLOWERS / LEAVES INSIDE CARD
+   Behind text + behind couple image
+================================================== */
+
+.invitation-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Falling layer inside card */
+.petals-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  z-index: 3 !important;
+}
+
+/* Falling items stay behind main content */
+.falling-item,
+.falling-petal,
+.falling-flower,
+.falling-leaf-img,
+.petal,
+.flower-dot,
+.leaf {
+  position: absolute !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
+
+/* Static flower background lowest */
+.fixed-flower-layer,
+.bg-flower {
+  z-index: 1 !important;
+}
+
+/* Text and couple image above falling flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.hero-title,
+.couple-illustration,
+.couple-img,
+.intro-card *,
+.date-section *,
+.venue-section *,
+.closing * {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+/* Customize button always top */
+.edit-toggle,
+.editor {
+  z-index: 100 !important;
+}
+/* ==============================
+   FALLING FLOWERS FULL HEIGHT
+============================== */
+
+.invitation-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* full card layer */
+.petals-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 4;
+}
+
+/* static bg flowers */
+.fixed-flower-layer,
+.bg-flower {
+  z-index: 1;
+}
+
+/* all content above falling items */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative;
+  z-index: 10;
+}
+
+/* falling items */
+.petal,
+.flower-dot,
+.leaf,
+.falling-item {
+  position: absolute;
+  top: -120px;
+  left: 0;
+  pointer-events: none;
+  z-index: 4;
+  will-change: transform;
+  animation-name: cardFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+/* exact styles */
+.petal {
+  width: 20px;
+  height: 12px;
+  background: linear-gradient(135deg, #c86d7a, #8f3f4e);
+  border-radius: 60% 40% 60% 40%;
+  opacity: 0.82;
+}
+
+.flower-dot {
+  width: 16px;
+  height: 16px;
+  background-image: url("assets/flowers/6-md.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
+
+.leaf {
+  width: 26px;
+  height: 18px;
+  background-image: url("assets/flowers/9-md.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.82;
+}
+
+/* IMPORTANT:
+   use px distance from JS, not vh */
+@keyframes cardFall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(var(--drift-x), var(--fall-distance), 0)
+      rotate(var(--rotate-end));
+    opacity: 1;
+  }
+}
+@keyframes fullFall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(var(--scale));
+  }
+
+  100% {
+    transform: translate3d(var(--drift), var(--fall-distance), 0)
+      rotate(var(--rotate-end)) scale(var(--scale));
+  }
+}
+
+.falling-item {
+  animation-name: fullFall !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: 1 !important;
+  animation-fill-mode: forwards !important;
+}
+/* ==================================================
+   FINAL FIX - FALLING FLOWERS FULL CARD HEIGHT
+   Paste this as the VERY LAST block in style.css
+================================================== */
+
+.invitation-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Falling layer must be inside invitation card */
+.invitation-card .petals-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  z-index: 4 !important;
+}
+
+/* All falling items */
+.invitation-card .falling-item,
+.invitation-card .falling-petal,
+.invitation-card .falling-flower,
+.invitation-card .falling-leaf-img {
+  position: absolute !important;
+  top: -120px !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 4 !important;
+  opacity: 0.78 !important;
+  will-change: transform !important;
+  animation-name: fullCardFall !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: 1 !important;
+  animation-fill-mode: forwards !important;
+}
+
+/* Petal design */
+.invitation-card .falling-petal {
+  width: 18px !important;
+  height: 12px !important;
+  background: linear-gradient(135deg, #b9565d, #822f38) !important;
+  border-radius: 90% 5% 90% 5% !important;
+  box-shadow: 0 3px 8px rgba(80, 20, 20, 0.15) !important;
+}
+
+/* Flower / leaf image design */
+.invitation-card .falling-flower,
+.invitation-card .falling-leaf-img {
+  object-fit: contain !important;
+  background: transparent !important;
+  filter: drop-shadow(0 4px 7px rgba(90, 35, 35, 0.14)) !important;
+}
+
+.invitation-card .falling-flower {
+  width: 26px !important;
+  height: 26px !important;
+  opacity: 0.72 !important;
+}
+
+.invitation-card .falling-leaf-img {
+  width: 24px !important;
+  height: auto !important;
+  opacity: 0.75 !important;
+}
+
+/* This uses JS --fall-distance value, so it falls until card bottom */
+@keyframes fullCardFall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(var(--scale));
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 0.78;
+  }
+
+  100% {
+    transform: translate3d(var(--drift), var(--fall-distance), 0)
+      rotate(var(--rotate-end)) scale(var(--scale));
+    opacity: 0.78;
+  }
+}
+
+/* Static flowers lowest */
+.fixed-flower-layer,
+.fixed-flower-layer .bg-flower,
+.bg-flower {
+  z-index: 1 !important;
+}
+
+/* Content above falling flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.hero-title,
+.couple-illustration,
+.couple-img,
+.intro-card *,
+.date-section *,
+.venue-section *,
+.closing * {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+/* Customize button top */
+.edit-toggle,
+.editor {
+  z-index: 100 !important;
+}
+.editor select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #e2c4ad;
+  border-radius: 12px;
+  background: white;
+  color: var(--brown);
+  font: inherit;
+}
+
+.form-section-title {
+  margin: 18px 0 10px;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--rose);
+  font-size: 22px;
+  text-align: left;
+}
+/* ==================================================
+   FINAL FIX: STABLE INSIDE FLOWERS
+   Text scroll wenawa, flowers stable widiyata thiyenawa
+   Paste this as the VERY LAST block in style.css
+================================================== */
+
+/* invitation card position reference */
+.invitation-card {
+  position: relative !important;
+  overflow-x: hidden !important;
+}
+
+/* stable flower layer - fixed but aligned to invitation card */
+.fixed-flower-layer {
+  position: fixed !important;
+  top: 0 !important;
+  left: var(--card-left, 0px) !important;
+  width: var(--card-width, 100vw) !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+/* all stable background flowers */
+.fixed-flower-layer .bg-flower {
+  position: absolute !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  object-fit: contain !important;
+  z-index: 1 !important;
+  transform-origin: center center !important;
+  filter: sepia(0.05) saturate(0.85) brightness(1.08) !important;
+}
+
+/* content should scroll above stable flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* text and couple image always above flowers */
+.hero-title,
+.couple-illustration,
+.couple-img,
+.intro-card *,
+.date-section *,
+.venue-section *,
+.closing * {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+/* customize panel/button should be top */
+.edit-toggle,
+.editor {
+  z-index: 100 !important;
+}
+
+/* ==================================================
+   DESKTOP stable flower positions
+================================================== */
+
+@media (min-width: 701px) {
+  .flower-top-left-main {
+    width: 390px !important;
+    top: -90px !important;
+    left: -105px !important;
+    opacity: 0.22 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 280px !important;
+    top: 40px !important;
+    left: 135px !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-top-right-main {
+    width: 440px !important;
+    top: -88px !important;
+    right: -120px !important;
+    opacity: 0.22 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 285px !important;
+    top: 125px !important;
+    right: 135px !important;
+    opacity: 0.14 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 270px !important;
+    top: 48vh !important;
+    right: -105px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 245px !important;
+    top: 58vh !important;
+    left: -82px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 260px !important;
+    top: 72vh !important;
+    left: -115px !important;
+    opacity: 0.11 !important;
+  }
+
+  .flower-bottom-right-base,
+  .desktop-bottom-flower-right {
+    width: 330px !important;
+    right: -125px !important;
+    bottom: -90px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 220px !important;
+    right: 90px !important;
+    bottom: -75px !important;
+    top: auto !important;
+    left: auto !important;
+    opacity: 0.10 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 250px !important;
+    left: -82px !important;
+    bottom: -58px !important;
+    top: auto !important;
+    opacity: 0.15 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 115px !important;
+    right: 115px !important;
+    bottom: 45px !important;
+    top: auto !important;
+    opacity: 0.16 !important;
+  }
+}
+
+/* ==================================================
+   MOBILE stable flower positions
+================================================== */
+
+@media (max-width: 700px) {
+  .fixed-flower-layer {
+    height: 100vh !important;
+  }
+
+  .flower-top-left-main {
+    width: 210px !important;
+    top: -18px !important;
+    left: -70px !important;
+    opacity: 0.28 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 145px !important;
+    top: 38px !important;
+    left: 58px !important;
+    opacity: 0.15 !important;
+  }
+
+  .flower-top-right-main {
+    width: 205px !important;
+    top: -16px !important;
+    right: -78px !important;
+    opacity: 0.24 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 130px !important;
+    top: 92px !important;
+    right: -8px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 150px !important;
+    top: 48vh !important;
+    right: -68px !important;
+    opacity: 0.09 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 138px !important;
+    top: 58vh !important;
+    left: -45px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 145px !important;
+    top: 72vh !important;
+    left: -55px !important;
+    opacity: 0.10 !important;
+  }
+
+  .flower-bottom-right-base,
+  .desktop-bottom-flower-right {
+    width: 205px !important;
+    right: -88px !important;
+    bottom: -65px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 150px !important;
+    right: 18px !important;
+    bottom: -52px !important;
+    left: auto !important;
+    top: auto !important;
+    opacity: 0.09 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 145px !important;
+    left: -45px !important;
+    bottom: -35px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 82px !important;
+    right: 18px !important;
+    bottom: 75px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  /* old deep section flowers mobile eke disturb wenawanam hide */
+  .venue-flower-right,
+  .venue-flower-bottom-right,
+  .final-bottom-right-flower,
+  .new-bottom-right-flower {
+    display: none !important;
+  }
+}
+/* ==================================================
+   REAL STABLE FLOWER LAYER
+   Text scrolls, flowers stay stable inside invitation
+   Add this as the LAST block in style.css
+================================================== */
+
+.invitation-card {
+  position: relative !important;
+  overflow: clip !important;
+}
+
+/* This layer stays pinned while content scrolls */
+.fixed-flower-layer {
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh !important;
+  width: 100% !important;
+  margin-bottom: -100vh !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+/* Flowers are positioned inside the stable layer */
+.fixed-flower-layer .bg-flower {
+  position: absolute !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  object-fit: contain !important;
+  z-index: 1 !important;
+  transform-origin: center center !important;
+  filter: sepia(0.05) saturate(0.85) brightness(1.08) !important;
+}
+
+/* Content scrolls above flowers */
+.hero,
+.intro-card,
+.date-section,
+.venue-section,
+.closing {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Text / couple image always above flowers */
+.hero-title,
+.couple-illustration,
+.couple-img,
+.intro-card *,
+.date-section *,
+.venue-section *,
+.closing * {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+/* ==================================================
+   DESKTOP STABLE FLOWER POSITIONS
+================================================== */
+
+@media (min-width: 701px) {
+  .flower-top-left-main {
+    width: 390px !important;
+    top: -85px !important;
+    left: -110px !important;
+    opacity: 0.20 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 280px !important;
+    top: 42px !important;
+    left: 140px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-top-right-main {
+    width: 450px !important;
+    top: -90px !important;
+    right: -125px !important;
+    opacity: 0.20 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 280px !important;
+    top: 135px !important;
+    right: 145px !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 250px !important;
+    top: 48vh !important;
+    left: -85px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 260px !important;
+    top: 68vh !important;
+    left: -115px !important;
+    opacity: 0.11 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 280px !important;
+    top: 46vh !important;
+    right: -115px !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-right {
+    width: 330px !important;
+    right: -125px !important;
+    bottom: -92px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 220px !important;
+    right: 80px !important;
+    bottom: -72px !important;
+    left: auto !important;
+    top: auto !important;
+    opacity: 0.10 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 250px !important;
+    left: -80px !important;
+    bottom: -58px !important;
+    top: auto !important;
+    opacity: 0.15 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 120px !important;
+    right: 115px !important;
+    bottom: 50px !important;
+    top: auto !important;
+    opacity: 0.17 !important;
+  }
+
+  .extra-left-side-flower {
+    width: 250px !important;
+    left: -105px !important;
+    top: 36vh !important;
+    opacity: 0.11 !important;
+  }
+
+  .extra-right-side-flower {
+    width: 255px !important;
+    right: -110px !important;
+    top: 32vh !important;
+    opacity: 0.11 !important;
+  }
+
+  .extra-middle-right-flower {
+    width: 230px !important;
+    right: -90px !important;
+    top: 62vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .extra-small-right-flower {
+    width: 115px !important;
+    right: 40px !important;
+    top: 74vh !important;
+    opacity: 0.15 !important;
+  }
+}
+
+/* ==================================================
+   MOBILE STABLE FLOWER POSITIONS
+================================================== */
+
+@media (max-width: 700px) {
+  .fixed-flower-layer {
+    height: 100vh !important;
+  }
+
+  .flower-top-left-main {
+    width: 215px !important;
+    top: -18px !important;
+    left: -75px !important;
+    opacity: 0.28 !important;
+  }
+
+  .flower-top-left-soft {
+    width: 150px !important;
+    top: 38px !important;
+    left: 58px !important;
+    opacity: 0.16 !important;
+  }
+
+  .flower-top-right-main {
+    width: 205px !important;
+    top: -16px !important;
+    right: -82px !important;
+    opacity: 0.23 !important;
+  }
+
+  .flower-top-right-soft {
+    width: 130px !important;
+    top: 90px !important;
+    right: -8px !important;
+    opacity: 0.12 !important;
+  }
+
+  .flower-mid-left-branch {
+    width: 135px !important;
+    left: -42px !important;
+    top: 52vh !important;
+    opacity: 0.13 !important;
+  }
+
+  .flower-mid-left-soft {
+    width: 145px !important;
+    left: -55px !important;
+    top: 70vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .flower-mid-right-outline {
+    width: 150px !important;
+    right: -72px !important;
+    top: 48vh !important;
+    opacity: 0.08 !important;
+  }
+
+  .desktop-bottom-flower-right {
+    width: 210px !important;
+    right: -88px !important;
+    bottom: -65px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-center {
+    width: 155px !important;
+    right: 18px !important;
+    bottom: -55px !important;
+    left: auto !important;
+    top: auto !important;
+    opacity: 0.09 !important;
+  }
+
+  .desktop-bottom-branch-left {
+    width: 145px !important;
+    left: -42px !important;
+    bottom: -35px !important;
+    top: auto !important;
+    opacity: 0.12 !important;
+  }
+
+  .desktop-bottom-flower-small-right {
+    width: 86px !important;
+    right: 18px !important;
+    bottom: 78px !important;
+    top: auto !important;
+    opacity: 0.14 !important;
+  }
+
+  .extra-left-side-flower {
+    width: 150px !important;
+    left: -65px !important;
+    top: 38vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .extra-right-side-flower {
+    width: 150px !important;
+    right: -68px !important;
+    top: 35vh !important;
+    opacity: 0.10 !important;
+  }
+
+  .extra-middle-right-flower {
+    width: 145px !important;
+    right: -62px !important;
+    top: 63vh !important;
+    opacity: 0.09 !important;
+  }
+
+  .extra-small-right-flower {
+    width: 82px !important;
+    right: 12px !important;
+    top: 76vh !important;
+    opacity: 0.14 !important;
+  }
+
+  /* Hide old section-based flowers that break the stable look */
+  .flower-bottom-right-base,
+  .flower-bottom-right-middle,
+  .flower-bottom-right-top,
+  .venue-flower-right,
+  .venue-flower-bottom-right,
+  .final-bottom-right-flower,
+  .new-bottom-right-flower {
+    display: none !important;
+  }
+}
