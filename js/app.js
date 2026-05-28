@@ -27,6 +27,12 @@ groomMotherStatus: 'alive',
 const $ = (selector) => document.querySelector(selector);
 const form = $('#inviteForm');
 const params = new URLSearchParams(window.location.search);
+/* Show customize only for owner/admin URL */
+const isEditMode = params.get('edit') === '1';
+
+if (isEditMode) {
+  document.body.classList.add('edit-mode');
+}
 
 function getState() {
   const state = { ...defaults };
@@ -72,8 +78,8 @@ function buildParentsLine(type, state) {
 function render(state) {
   const headline = document.getElementById('headline');
   if (headline) headline.innerHTML = String(state.headline).split('\n').map(x => x.trim()).join('<br />');
-  setText('brideParents', state.brideParents);
-  setText('groomParents', state.groomParents);
+  setText('brideParents', buildParentsLine('bride', state));
+setText('groomParents', buildParentsLine('groom', state));
   setText('brideName', state.brideName);
   setText('groomName', state.groomName);
   setText('closingBride', state.brideName);
@@ -136,15 +142,26 @@ $('#resetBtn').addEventListener('click', () => {
 $('#copyLinkBtn').addEventListener('click', async () => {
   const formData = new FormData(form);
   const current = { ...defaults };
-  Object.keys(defaults).forEach((key) => current[key] = formData.get(key) || defaults[key]);
-  const url = buildUrl(current);
+
+  Object.keys(defaults).forEach((key) => {
+    current[key] = formData.get(key) || defaults[key];
+  });
+
+  const url = new URL(buildUrl(current));
+
+  /* client URL eke customize button eka hide karanna */
+  url.searchParams.delete('edit');
+
   try {
-    await navigator.clipboard.writeText(url);
-    $('#copyLinkBtn').textContent = 'Copied ✓';
+    await navigator.clipboard.writeText(url.toString());
+    $('#copyLinkBtn').textContent = 'Client URL Copied ✓';
   } catch {
-    prompt('Copy this URL:', url);
+    prompt('Copy this client URL:', url.toString());
   }
-  setTimeout(() => $('#copyLinkBtn').textContent = 'Copy Client URL', 1400);
+
+  setTimeout(() => {
+    $('#copyLinkBtn').textContent = 'Copy Client URL';
+  }, 1400);
 });
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -264,3 +281,44 @@ window.addEventListener('resize', () => {
   petalsLayer.innerHTML = '';
   startFallingAnimation();
 });
+
+/* ==================================================
+   IMAGE SRC BASED EYE BLINK
+   couple.png -> couple-closed.png -> couple.png
+================================================== */
+
+/* ==================================================
+   IMAGE SRC BASED EYE BLINK WITH POSITION FIX
+================================================== */
+
+const coupleBlinkImage = document.getElementById('coupleBlinkImage');
+
+function startCoupleEyeBlink() {
+  if (!coupleBlinkImage) return;
+
+  const openSrc = coupleBlinkImage.dataset.open;
+  const closedSrc = coupleBlinkImage.dataset.closed;
+
+  if (!openSrc || !closedSrc) return;
+
+  const closedPreload = new Image();
+  closedPreload.src = closedSrc;
+
+  closedPreload.onload = () => {
+    setInterval(() => {
+      coupleBlinkImage.classList.add('is-eye-closed');
+      coupleBlinkImage.src = closedSrc;
+
+      setTimeout(() => {
+        coupleBlinkImage.src = openSrc;
+        coupleBlinkImage.classList.remove('is-eye-closed');
+      }, 100);
+    }, 3000);
+  };
+
+  closedPreload.onerror = () => {
+    console.warn('couple-closed.png load wenne naha. Path/name check karanna.');
+  };
+}
+
+window.addEventListener('load', startCoupleEyeBlink);
