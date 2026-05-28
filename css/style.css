@@ -7112,5 +7112,5 @@ body.edit-mode .edit-toggle {
    Adjust these values only if needed.
 */
 #coupleBlinkImage.is-eye-closed {
-  transform: translateX(-8px) translateY(1px) scale(1.004) !important;
+  transform: translateX(-6px) translateY(10px) scale(1.099) !important;
 }
