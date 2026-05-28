@@ -7114,3 +7114,23 @@ body.edit-mode .edit-toggle {
 #coupleBlinkImage.is-eye-closed {
   transform: translateX(-6px) translateY(10px) scale(1.099) !important;
 }
+
+/* ==================================================
+   CLOSED EYE IMAGE POSITION FIX
+   Desktop and mobile separate
+================================================== */
+
+
+/* Tablet / Mobile */
+@media (max-width: 700px) {
+  #coupleBlinkImage.is-eye-closed {
+    transform: translateX(1px) translateY(-9px) scale(1.500) !important;
+  }
+}
+
+/* Small mobile / iPhone */
+@media (max-width: 430px) {
+  #coupleBlinkImage.is-eye-closed {
+    transform: translateX(-2px) translateY(7px) scale(1.099) !important;
+  }
+}
